@@ -1,0 +1,72 @@
+[
+    {
+        "name": "All Categories",
+        "children": [
+            {
+                "name": ""
+            }
+        ]
+    },
+    {
+        "name": "Electronics",
+        "children": [
+            {
+                "name": "Cell Phone & Smartphones",
+                "children": [
+                    {
+                        "name": "Cell Phone Accessories"
+                    },
+                    {
+                        "name": "Cell Phone Gatgets"
+                    },
+                    {
+                        "name": "Applications"
+                    },
+                    {
+                        "name": "Smart Watches"
+                    }
+                ]
+            },
+            {
+                "name": "Business & Industrial",
+                "children": [
+                    {
+                        "name": ""
+                    }
+                ]
+            },
+            {
+                "name": "Computers",
+                "children": [
+                    {
+                        "name": ""
+                    }
+                ]
+            },
+            {
+                "name": "Computer Electronics",
+                "children": [
+                    {
+                        "name": ""
+                    }
+                ]
+            },
+            {
+                "name": "Home & Garden",
+                "children": [
+                    {
+                        "name": ""
+                    }
+                ]
+            },
+            {
+                "name": "Collectibies",
+                "children": [
+                    {
+                        "name": ""
+                    }
+                ]
+            }
+        ]
+    }
+]

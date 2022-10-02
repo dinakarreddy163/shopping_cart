@@ -1,0 +1,43 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="panelSet">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Collapsed Filters
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <p>I'm visible because I am open</p>
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" expanded="true"
+        class="panelSet" >
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Expanded Filters
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <p *ngFor="let list of expandedFilters">
+            <mat-checkbox (change)="expandFliter(list)">{{list.name}}</mat-checkbox>
+        </p>
+    </mat-expansion-panel>
+</mat-accordion>
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" expanded="true"
+        class="panelSet">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Year Of Manufacture
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p *ngFor="let list of yearOfManufacture">
+            <mat-checkbox (change)="sortByYear(list)">{{list}}</mat-checkbox>
+        </p>
+    </mat-expansion-panel>
+
+</mat-accordion>

@@ -1,0 +1,99 @@
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #f6f6f6;
+    color: #6e6e6e;
+    font-weight: 600;
+    font-size: 12px;
+    font-family: sans-serif;
+  }
+
+  .logo{
+    background: #53439a;
+    height: 29px;
+    color: white;
+    width: 31px;
+    margin-left: 4px;
+    padding-left: 9px;
+    padding-top: 5px;
+    font-size: 22px;
+  }
+.logoName{
+    color: #050505;
+    font-family: cursive;  
+    margin-left: 8px;
+    font-size: 1rem;
+}
+
+.navList{
+    position: relative;
+    left: 1rem;
+    cursor: pointer;
+}
+.navLeft{
+    justify-content: flex-end;
+}
+.cartItem{
+    background-color: red;
+    border-radius: 20rem;
+    height: 17px;
+    width: 14px;
+    padding-left: 3px;
+    margin-right: 27re;
+    margin-left: -1rem;
+    font-weight: bold;
+}
+.inputSearch{
+    border-radius: 21rem;
+    width: 27rem;
+    margin-left: 10rem;
+    height: -1rem;
+    height: 26px;
+    background-color: #d8d8d8;
+    margin-top: 5px;
+    border: none;
+}
+.iconSet{
+  padding-left: 32%;
+    width: unset;
+    font-size: 19px;
+}
+.navColor{
+  font-family: sans-serif;
+    color: #191919;
+    font-size: 12px;
+}
+.navColorIcon{
+  font-family: sans-serif;
+  color: #878282;
+  padding-right: 12px;
+  font-size: 9px;
+  margin-right: 14px;
+}
+.navColorIcon:hover{
+ cursor: pointer;
+  color: #058e92;
+}
+.navColorIconActive{
+  color: #6b5ced;
+  height: 61px;
+  border-radius: 15px;
+  background-color: #d3cfee;
+ }
+ .icon{
+  padding-left: 25px;
+  background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+  background-size: 20px;
+  background-color: #d8d8d8;
+
+}

@@ -1,0 +1,129 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <app-product-departments></app-product-departments>
+            <app-product-filters (year)="getYear($event)" (expand)="getExpandFilter($event)"></app-product-filters>
+        </div>
+        <div class="col-lg-8">
+            <mat-card style="width: 49rem;">
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <mat-form-field appearance="outline" class="formSize">
+                                <mat-label>Sort By</mat-label>
+                                <mat-select (valueChange)="sortByVal($event)">
+                                    <mat-option value="useless_first">Useless First </mat-option>
+                                    <mat-option value="useless_second">Useless Second</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="formSize">
+                                <mat-label>Discount</mat-label>
+                                <mat-select>
+                                    <mat-option value="one">First option</mat-option>
+                                    <mat-option value="two">Second option</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="formSize">
+                                <mat-label>Delivery Options</mat-label>
+                                <mat-select (valueChange)="deliveryOptions($event)">
+                                    <mat-option value="pay_on_del">Pay On Delivery</mat-option>
+                                    <mat-option value="online_pay">Online Payments</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <mat-button-toggle-group appearance="legacy" name="fontStyle"
+                                        aria-label="Font Style" value="Auction">
+                                        <mat-button-toggle value="Show All" color="primary">Show All</mat-button-toggle>
+                                        <mat-button-toggle value="Auction">Auction</mat-button-toggle>
+                                        <mat-button-toggle value="Buy Now">Buy Now</mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </div>
+                                <div class="col-lg-6">
+                                    <mat-button-toggle-group appearance="legacy" name="fontStyle"
+                                        aria-label="Font Style" class="buttonGroup" [value]="layoutSel">
+                                        <mat-button-toggle *ngFor="let view of layout" [value]="view.value"
+                                            (change)="layoutSel=view.value">
+                                            <mat-icon> {{view.name}}</mat-icon>
+                                        </mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <mat-chip-list aria-label="Shopping selection" style="margin-bottom: 2rem;"
+                            [value]="selectChipList">
+                            <label>Related</label>
+                            <mat-chip class="chipList" *ngFor="let chip of matChipList" [value]="chip.value"
+                                (click)="selectChip(chip)">
+                                {{chip.name}}</mat-chip>
+                        </mat-chip-list>
+                    </div>
+                    <div class="row">
+                        <ng-container>
+                            <div [ngClass]="layoutSel=='view_module'?'col-lg-3':'col-lg-12'"
+                                *ngFor="let data of productList | filter:selectChipList:deliveryOption:expandFilter | sort:sortBy;let i = index">
+                                <div class="card" [ngClass]="layoutSel=='view_module'?'layoutCol':'layoutRow'">
+                                    <img [src]="data.thumbnail" alt="Avatar"
+                                        [ngClass]="layoutSel=='view_module'?'imgCol':'imgRow'">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <p class="itemDesc">{{data.description}}</p>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="">Manufacture Date: {{data.yearOfManufacture}}</p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="" *ngIf="data.stock">In Stock</p>
+                                                <p class="" *ngIf="!data.stock">Out Of Stock</p>
+                                            </div>
+                                        </div> -->
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="price">{{data.price | currency:'USD':'symbol'}}</p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="priceDis">{{data.discountPercentage}}% OFF</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <p class="subItemDesc">{{data.description}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <app-star-rating [starRating]="data.rating" [layOut]="layoutSel">
+                                                </app-star-rating>
+                                            </div>
+                                            <!-- <div class="col-lg-2">
+                                                {{data.rating}}
+                                            </div> -->
+                                            <div class="col-lg-4">
+                                                <button mat-stroked-button color="primary" class="watchButton"
+                                                    (click)="watchClick(data)">
+                                                    <mat-icon style="font-size:16px;padding:3px;" id="watch_{{i}}">
+                                                        {{watchList(i,data.watch)}}
+                                                    </mat-icon>
+                                                    Watch
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+</div>
