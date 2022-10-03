@@ -19,28 +19,30 @@ export class FilterPipe implements PipeTransform {
       if(deliveryOption=="online_pay") return productList.filter(e=>e.price >=800 );
       else return productList;
     }
-    if(expandFilter?.length!=0)
-    {
-      let filterData:any = [];
-      filterData=productList;
-      // expandFilter.forEach((res:any) => {
-      //   if(res=="Expiring Soon") return filterData.filter((e:any)=>e.rating<4);
-      //   // switch (res) {
-      //   //   case "Recommended":
-      //   //     filterData.filter((e:any)=>e.rating==4.69);
-      //   //     break;
-      //   //   case "Expiring Soon":
-      //   //     filterData.filter((e:any)=>e.rating==4.69);
-      //   //     break;
-      //   //   case "Recently Added":
-      //   //     filterData.filter((e:any)=>e.rating==4.69);
-      //   //     break;
-      //   //   default:
-      //   //     break;
-      //   // }
-      // });
-      return filterData.filter((e:any)=>e.rating<4);
-    }
+    // if(expandFilter?.length!=0)
+    // {
+    //   let filterData:any = [];
+    //   // filterData=productList;
+    //   expandFilter.forEach((res:any) => {
+    //     if(res=="Recommended") filterData= productList.filter((e:any)=>e.rating<4.5);
+    //     if(res=="Expiring Soon") filterData= productList.filter((e:any)=>e.rating<2010);
+    //     if(res=="Recently Added") filterData= productList.filter((e:any)=>e.rating>1990);
+    //     // switch (res) {
+    //     //   case "Recommended":
+    //     //     filterData = productList.filter((e:any)=>e.rating==4.5);
+    //     //     break;
+    //     //   case "Expiring Soon":
+    //     //     filterData.filter((e:any)=>e.rating<4.69);
+    //     //     break;
+    //     //   case "Recently Added":
+    //     //     filterData.filter((e:any)=>e.rating==4.69);
+    //     //     break;
+    //     //   default:
+    //     //     break;
+    //     // }
+    //   });
+    //   return filterData
+    // }
     else return productList
   }
 

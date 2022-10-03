@@ -10,12 +10,16 @@ import { MatIconModule} from '@angular/material/icon';
 import { MatBadgeModule} from '@angular/material/badge';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { SortPipe } from './pipe/sort/sort.pipe';
-
+import { LoginComponent } from './modules/login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ErrorPageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,10 @@ import { SortPipe } from './pipe/sort/sort.pipe';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
