@@ -58,9 +58,22 @@
     flex-flow: row;
 }
 .imgCol{
-    width:100%;height: 89px;
+    width:100%;height: 100%;
 }
 .imgRow{
-    width: 13rem;
+    width: 10rem;
     height: 100%;
+}
+.matIconShow:hover{
+
+    display: visible !important;
+}
+.matIconShow{
+    margin-top: 3re;
+    position: absolute;
+    top: 6rem;
+    left: 4rem;
+    color: #999999;
+    font-size: 3rem;
+    overflow: visible;
 }

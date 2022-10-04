@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Cricket Bat",
+            "description": "Aurion Cricket Bat (Full Size-8) for Tennis Ball Heavy Tennis Ball - Red Black",
+            "price": 349,
+            "discountPercentage": 11,
+            "rating": 3.5,
+            "stock": 94,
+            "type": "sports",
+            "category": "Sports_Life",
+            "thumbnail": "https://n4.sdlcdn.com/imgs/k/d/6/230X258_sharpened/Aurion-Cricket-Bat-Full-Size-SDL722739176-1-8e381.webp"
+        },
+        {
+            "id": 2,
+            "title": "FootBall",
+            "description": "RASCO RASCO RUSSIA RED Red Football Size- 5",
+            "price": 299,
+            "discountPercentage": 11,
+            "rating": 4.5,
+            "stock": 94,
+            "type": "sports",
+            "category": "Sports_Life",
+            "thumbnail": "https://n3.sdlcdn.com/imgs/i/d/6/230X258_sharpened/RASCO-RASCO-RUSSIA-RED-Red-SDL686093877-1-39a1d.jpeg"
+        },
+        {
+            "id": 3,
+            "title": "Push Up Board",
+            "description": "Push Up Board -with 14-in-one Muscle Toning System, Multifunctional Colour Coded Foldable Push up Board for",
+            "price": 430,
+            "discountPercentage": 11,
+            "rating": 2.5,
+            "stock": 94,
+            "type": "Life_Style",
+            "category": "Sports_Life",
+            "thumbnail": "https://n3.sdlcdn.com/imgs/j/m/a/230X258_sharpened/Push-Up-Board-with-14-SDL057859326-1-92575.webp"
+        }
+    ]
+}

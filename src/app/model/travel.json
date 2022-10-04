@@ -1,0 +1,38 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Ghost Bag",
+            "description": "Ghost – 25 litres, 15.6 Inch Anti-Theft Laptop Backpack (Daring Texture)",
+            "price": 3459,
+            "discountPercentage": 5.96,
+            "rating": 5,
+            "stock": 94,
+            "type": "Bags",
+            "category": "Travel",
+            "thumbnail": "https://cdn.roadgods.com/wp-content/uploads/2022/09/Ghost_DT-441x441.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Tail Bag",
+            "description": "Batclaw – 70 litres 3 in 1 Claw Bag, Duffle bag and Motorcycle Tail Bag",
+            "price": 4499,
+            "discountPercentage": 12.96,
+            "rating": 4.0,
+            "type": "Bags",
+            "category": "Travel",
+            "thumbnail": "https://cdn.roadgods.com/wp-content/uploads/2021/10/Quarter-600x600.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Taur",
+            "description": "Taur – 4 in 1 Magnetic riding Tank bag, thigh bag, waist bag and Messenger sling bag",
+            "price": 1699,
+            "discountPercentage": 5.96,
+            "rating": 3.5,
+            "type": "Bags",
+            "category": "Travel",
+            "thumbnail": "https://cdn.roadgods.com/wp-content/uploads/2021/07/taurmodel2-600x600.jpg"
+        }
+    ]
+}

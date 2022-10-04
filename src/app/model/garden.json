@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "EPIPREMNUM",
+            "description": "Decorate your home with plants combined with a plant pot to suit your style.",
+            "price": 69,
+            "discountPercentage": 5.96,
+            "rating": 2,
+            "stock": 94,
+            "type": "Garden",
+            "category": "Flowers",
+            "thumbnail": "https://www.ikea.com/in/en/images/products/epipremnum-potted-plant-silver-vine__0611637_pe686866_s5.jpg?f=xl"
+        },
+        {
+            "id": 2,
+            "title": "PHILODENDRON XANADU",
+            "description": "Decorate your home with plants combined with a plant pot to suit your style.",
+            "price": 249,
+            "discountPercentage": 5.96,
+            "rating": 3,
+            "stock": 94,
+            "type": "Garden",
+            "category": "Flowers",
+            "thumbnail": "https://www.ikea.com/in/en/images/products/philodendron-xanadu-potted-plant__0611631_pe686862_s5.jpg?f=xl"
+        },
+        {
+            "id": 3,
+            "title": "PHALAENOPSIS",
+            "description": "Plants can boost your well-being and make the home feel more vibrant. This plant blooms several times per year if you are nice to it. In nature, it hangs on trees and uses air roots to get nutrients.",
+            "price": 599,
+            "discountPercentage": 5.96,
+            "rating": 4,
+            "stock": 94,
+            "type": "Garden",
+            "category": "Flowers",
+            "thumbnail": "https://www.ikea.com/in/en/images/products/phalaenopsis-potted-plant-orchid-1-stem-assorted-colours__0611630_pe686861_s5.jpg?f=s"
+        }
+    ]
+}

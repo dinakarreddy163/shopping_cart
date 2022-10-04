@@ -20,6 +20,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FilterPipe } from 'src/app/pipe/filter/filter.pipe';
 import { SortPipe } from 'src/app/pipe/sort/sort.pipe';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 const route:Routes=[{
@@ -33,7 +35,8 @@ const route:Routes=[{
     ProductFiltersComponent,
     StarRatingComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +52,8 @@ const route:Routes=[{
     MatSelectModule,
     MatChipsModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTooltipModule
     
   ],
   providers:[ProductService]

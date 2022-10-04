@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Driver",
+            "description": "Eastman Impact Driver Set-CRV Bits, EID-2500-01 (Pack of 1)",
+            "price": 897,
+            "discountPercentage": 23,
+            "rating": 3.5,
+            "stock": 94,
+            "type": "electric",
+            "category": "electric",
+            "thumbnail": "https://cdn.moglix.com/p/hW05lWsNv6UfF-xxlarge.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Tool Kit",
+            "description": "Bosch 12 Pieces Hand Tool Kit, 2607002791",
+            "price": 1050,
+            "discountPercentage": 12,
+            "rating": 3.5,
+            "stock": 94,
+            "type": "electric",
+            "category": "electric",
+            "thumbnail": "https://cdn.moglix.com/p/RWeR0k4LKctAr-xxlarge.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Visko Tool",
+            "description": "Visko 805 10 Pieces Multicolor Home Tool Kit Set",
+            "price": 789,
+            "discountPercentage": 23,
+            "rating": 3.5,
+            "stock": 94,
+            "type": "electric",
+            "category": "electric",
+            "thumbnail": "https://cdn.moglix.com/p/ZbNuuQc2GrOA5-large.jpg"
+        }
+    ]
+}

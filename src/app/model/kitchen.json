@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Mixing bowl,",
+            "description": "Mixing bowl, set of 2, white. The bowl has a rubber ring on its base which keeps it in place during use.",
+            "price": 449,
+            "discountPercentage": 10.96,
+            "rating": 2.5,
+            "stock": 94,
+            "type": "Bowls",
+            "category": "Kitchen",
+            "thumbnail": "https://www.ikea.com/in/en/images/products/vispad-mixing-bowl-set-of-2-white__0711811_pe728490_s5.jpg?f=xl"
+        },
+        {
+            "id": 2,
+            "title": "Bowl, matt light turquoise",
+            "description": "Your perfect start for many types of meals. FÄRGKLAR bowl comes in a straightforward design, a great base to match with other dinnerware. Choose a matt glazed rustic surface or a glossy modern one.",
+            "price": 499,
+            "discountPercentage": 10.96,
+            "rating": 3.5,
+            "stock": 94,
+            "type": "Bowls",
+            "category": "Kitchen",
+            "thumbnail": "https://www.ikea.com/in/en/images/products/faergklar-bowl-matt-light-turquoise__0958932_pe805517_s5.jpg?f=s"
+           },
+        {
+            "id": 3,
+            "title": "Bowl, blue, 11 cm (4 ½ )",
+            "description": "This ocean-blue, glazed bowl, with golden-brown details, turns every meal into pure joy. Decorate your table with clean classic shapes and a strong crafted look. A timeless feel with a unique design.",
+            "price": 799,
+            "discountPercentage": 10.96,
+            "rating": 4.5,
+            "stock": 94,
+            "type": "Bowls",
+            "category": "Kitchen",
+            "thumbnail": "https://www.ikea.com/in/en/images/products/gladelig-bowl-blue__0986366_pe817070_s5.jpg?f=s"
+        }
+    ]
+}

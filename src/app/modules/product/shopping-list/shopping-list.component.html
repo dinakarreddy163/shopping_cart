@@ -67,12 +67,13 @@
                             <div [ngClass]="layoutSel=='view_module'?'col-lg-3':'col-lg-12'"
                                 *ngFor="let data of productList | filter:selectChipList:deliveryOption:expandFilter | sort:sortBy;let i = index">
                                 <div class="card" [ngClass]="layoutSel=='view_module'?'layoutCol':'layoutRow'">
-                                    <img [src]="data.thumbnail" alt="Avatar"
+                                    <mat-icon *ngIf="data.type=='Music'" class="matIconShow" (click)="playSet(data)">
+                                        {{data.playIcon}}</mat-icon> <img [src]="data.thumbnail" alt="Avatar"
                                         [ngClass]="layoutSel=='view_module'?'imgCol':'imgRow'">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <p class="itemDesc">{{data.description}}</p>
+                                                <p class="itemDesc" [matTooltip]="data.description">{{data.description}}</p>
                                             </div>
                                         </div>
                                         <!-- <div class="row">

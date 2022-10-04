@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Cats",
+            "description": "grey male persian cat and white persian female available for adoption as a pair",
+            "price": 5000,
+            "discountPercentage": 12.96,
+            "rating": 3.5,
+            "stock": 94,
+            "type": "Pets",
+            "category": "Cats",
+            "thumbnail": "https://www.thesprucepets.com/thmb/cr0IUzzdcuqOYdGMBbRbbi6NfkY=/1568x1176/smart/filters:no_upscale()/GettyImages-145577979-d97e955b5d8043fd96747447451f78b7.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Dogs",
+            "description": "a medium-sized working sled dog breed. The breed belongs to the Spitz genetic family. It is recognizable by its thickly furred double coat, erect triangular ears, and distinctive markings",
+            "price": 10000,
+            "discountPercentage": 12.96,
+            "rating": 3.5,
+            "type": "Pets",
+            "stock": 94,
+            "category": "Dogs",
+            "thumbnail": "data:image/jpeg;base64,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"
+        },
+        {
+            "id": 3,
+            "title": "Parrots",
+            "description": "With the exception of the Madagascar lovebird—a native to that island—all lovebird species call the African continent home. They tend to live in small flocks.",
+            "price": 2000,
+            "discountPercentage": 5.96,
+            "rating": 3.5,
+            "type": "Pets",
+            "stock": 94,
+            "category": "Parrots",
+            "thumbnail": "https://i.natgeofe.com/n/e3ae5fbf-ddc9-4b18-8c75-81d2daf962c1/3948225_3x4.jpg"
+        }
+    ]
+}
