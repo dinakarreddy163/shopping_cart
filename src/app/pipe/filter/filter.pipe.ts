@@ -9,10 +9,18 @@ export class FilterPipe implements PipeTransform {
   transform(productList: any[], value:any,deliveryOption:any,expandFilter:any) {
     console.log(typeof value);
     if(value == "world_wide_ship") return productList.filter(e=>e.worldWideShip==true);
-    if(value == "under_50") return productList.filter(e=>e.price<=50);
-    if(value.length!=0) {
-      return productList.filter(e=>e.yearOfManufacture>=value[0] && e.yearOfManufacture<=value[1])
-    }
+    if(value == "under_50") return productList.filter(e=>e.price<=700);
+    if(value == "Jeans") return productList.filter(e=>e.category=='Mens_jeans');
+    if(value == "pucker_shoes") return productList.filter(e=>e.category=='Mens_Shoes');
+    // if(value.length!=0) {
+    //   let list = productList;
+    //   value.forEach((e:any,i:number) => {
+    //     value.forEach((e:any,j:number) => {
+    //    list = productList.filter(e=>{e.yearOfManufacture>=value[i] && e.yearOfManufacture<=value[j+1]});
+    //     })
+    //   });
+    //    return list
+    // }
     if(deliveryOption!="")
     {
       if(deliveryOption=="pay_on_del") return productList.filter(e=>e.price <=800 );

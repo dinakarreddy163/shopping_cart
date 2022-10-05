@@ -1,1 +1,28 @@
-<p>product-detail works!</p>
+<div class="row">
+    <div class="col-lg-5">
+        <img [src]="productDetail.thumbnail" width="100%">
+    </div>
+    <div class="col-lg-7">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="testAlign">{{productDetail.title}} - {{productDetail.description}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="testAlign">{{productDetail.price | currency:'USD':'symbol'}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 testAlign">
+                <p class="priceDis">{{productDetail.discountPercentage}}% OFF</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 testAlign">
+                <app-star-rating [starRating]="productDetail.rating">
+                </app-star-rating>
+            </div>
+        </div>
+    </div>
+</div>

@@ -35,10 +35,8 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <mat-button-toggle-group appearance="legacy" name="fontStyle"
-                                        aria-label="Font Style" value="Auction">
-                                        <mat-button-toggle value="Show All" color="primary">Show All</mat-button-toggle>
-                                        <mat-button-toggle value="Auction">Auction</mat-button-toggle>
-                                        <mat-button-toggle value="Buy Now">Buy Now</mat-button-toggle>
+                                        aria-label="Font Style" [value]="selectAuc">
+                                        <mat-button-toggle *ngFor="let data of auction" [value]="data.value" color="primary" (change)="auctionVal(data.value)">{{data.name}}</mat-button-toggle>
                                     </mat-button-toggle-group>
                                 </div>
                                 <div class="col-lg-6">
@@ -68,12 +66,15 @@
                                 *ngFor="let data of productList | filter:selectChipList:deliveryOption:expandFilter | sort:sortBy;let i = index">
                                 <div class="card" [ngClass]="layoutSel=='view_module'?'layoutCol':'layoutRow'">
                                     <mat-icon *ngIf="data.type=='Music'" class="matIconShow" (click)="playSet(data)">
-                                        {{data.playIcon}}</mat-icon> <img [src]="data.thumbnail" alt="Avatar"
+                                        {{data.playIcon}}</mat-icon>
+                                    <img [src]="data.thumbnail" alt="Avatar"
                                         [ngClass]="layoutSel=='view_module'?'imgCol':'imgRow'">
+                                        <button mat-stroked-button color="primary" (click)="quickView(data)">Quick View</button>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <p class="itemDesc" [matTooltip]="data.description">{{data.description}}</p>
+                                                <p class="itemDesc" [matTooltip]="data.description">{{data.description}}
+                                                </p>
                                             </div>
                                         </div>
                                         <!-- <div class="row">

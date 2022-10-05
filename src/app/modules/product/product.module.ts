@@ -21,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FilterPipe } from 'src/app/pipe/filter/filter.pipe';
 import { SortPipe } from 'src/app/pipe/sort/sort.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
@@ -53,7 +54,8 @@ const route:Routes=[{
     MatChipsModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
     
   ],
   providers:[ProductService]

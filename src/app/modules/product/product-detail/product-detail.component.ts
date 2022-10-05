@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Inject, OnInit,ViewEncapsulation } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-detail',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-
-  constructor() { }
+productDetail:any;
+  data: any;
+  constructor(@Inject(MAT_DIALOG_DATA) data: any) {
+    this.productDetail = data;
+    console.log(data)
+   }
 
   ngOnInit(): void {
   }
