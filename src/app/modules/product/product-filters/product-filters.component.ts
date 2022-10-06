@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-filters',
@@ -11,6 +11,7 @@ export class ProductFiltersComponent implements OnInit {
   expandedFilters: any[] = [];
   yearOfManufacture: any[] = []
   constructor() { }
+  @Input() name = "";
   @Output() year = new EventEmitter<any>;
   @Output() expand = new EventEmitter<any>;
   ngOnInit(): void {

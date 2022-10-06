@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
   signIn()
   {
-    this.value;
-    //console.log(this.value)
+    localStorage.setItem('isLogin',"true");
   }
 }

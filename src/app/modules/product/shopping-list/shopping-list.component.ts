@@ -215,10 +215,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
   getSearchVal() {
     let value = "";
     this.app.getValSearch().subscribe((e: any) => {
+   
       value = e;
       let data = this.product.searchResult();
       data = data.filter(e => e.title == value);
-      if (data.length != 0) this.productList = data;
+      if (data.length != 0){ this.productList = data; return ;}
+      this.app.postValSearch('')
     })
 
   }

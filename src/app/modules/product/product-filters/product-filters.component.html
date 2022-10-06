@@ -31,9 +31,14 @@
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" expanded="true"
         class="panelSet">
         <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title *ngIf="name!='library_music' && name!='local_movies';else other_content">
                 Year Of Manufacture
             </mat-panel-title>
+            <ng-template #other_content>
+            <mat-panel-title *ngIf="name=='local_movies' || name=='library_music'">
+                Year Of Released
+            </mat-panel-title>
+        </ng-template>
         </mat-expansion-panel-header>
         <p *ngFor="let list of yearOfManufacture">
             <mat-checkbox (change)="sortByYear(list)">{{list}}</mat-checkbox>

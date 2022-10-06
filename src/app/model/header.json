@@ -19,7 +19,7 @@
     },
     {
         "icon": "sports",
-        "icon_name": "Sports",
+        "icon_name": "Sports & Life Style",
         "active": false,
         "routerLink": "/shopping/sports"
     },
@@ -31,7 +31,7 @@
     },
     {
         "icon": "kitchen",
-        "icon_name": "Kitchen",
+        "icon_name": "Kitchen Accessories",
         "active": false,
         "routerLink": "/shopping/kitchen"
     },
