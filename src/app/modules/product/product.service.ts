@@ -12,47 +12,51 @@ import electric from '../../model/electricTools.json';
 import childCare from '../../model/motherCare.json';
 import toys from '../../model/toys.json';
 import { map, of } from 'rxjs'
+import { AppService } from 'src/app/app.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private app: AppService) { }
   getProducts(pageName: string) {
+
     // returnreturn this.http.get("https://dummyjson.com/products");
     if (pageName == 'local_movies') {
-    return this.getMovies();
+      return this.getMovies();
     }
     else if (pageName == 'library_music') {
-     return this.getMusic();
+      return this.getMusic();
     }
     else if (pageName == 'pets') {
-     return this.getPets();
+      return this.getPets();
     }
     else if (pageName == 'kitchen') {
-     return this.getKitchen();
+      return this.getKitchen();
     }
     else if (pageName == 'card_travel') {
-     return this.getTravel();
+      return this.getTravel();
     }
     else if (pageName == 'nature') {
-     return this.getGardun();
+      return this.getGardun();
     }
     else if (pageName == 'sports') {
-     return this.getSports();
+      return this.getSports();
     }
     else if (pageName == 'electric_bolt') {
-     return this.getElectric();
+      return this.getElectric();
     }
     else if (pageName == 'child_care') {
-     return this.getChildCare();
+      return this.getChildCare();
     }
     else if (pageName == 'toys') {
-     return this.getToys();
+      return this.getToys();
     }
     else {
       return of(cloths);
     }
+
+   
   }
   getMovies() {
     return of(entertainment);
@@ -83,5 +87,9 @@ export class ProductService {
   }
   getToys() {
     return of(toys);
+  }
+  searchResult() {
+    return [...cloths.products, ...toys.products, ...entertainment.products, ...music.products, ...pets.products, ...kitchen.products
+      , ...travel.products, ...gardun.products, ...sports.products, ...electric.products, ...childCare.products]
   }
 }

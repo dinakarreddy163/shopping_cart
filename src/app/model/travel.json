@@ -9,7 +9,7 @@
             "rating": 5,
             "stock": 94,
             "type": "Bags",
-            "category": "Travel",
+            "category": "Travel","Auction":false,"yearOfManufacture":2005,
             "thumbnail": "https://cdn.roadgods.com/wp-content/uploads/2022/09/Ghost_DT-441x441.jpg"
         },
         {
@@ -20,7 +20,7 @@
             "discountPercentage": 12.96,
             "rating": 4.0,
             "type": "Bags",
-            "category": "Travel",
+            "category": "Travel","Auction":true,"yearOfManufacture":2020,
             "thumbnail": "https://cdn.roadgods.com/wp-content/uploads/2021/10/Quarter-600x600.jpg"
         },
         {
@@ -31,7 +31,7 @@
             "discountPercentage": 5.96,
             "rating": 3.5,
             "type": "Bags",
-            "category": "Travel",
+            "category": "Travel","Auction":true,"yearOfManufacture":1995,
             "thumbnail": "https://cdn.roadgods.com/wp-content/uploads/2021/07/taurmodel2-600x600.jpg"
         }
     ]

@@ -7,7 +7,7 @@
             "price": 449,
             "discountPercentage": 10.96,
             "rating": 2.5,
-            "stock": 94,
+            "stock": 94,"Auction":true,"yearOfManufacture":1997,
             "type": "Bowls",
             "category": "Kitchen",
             "thumbnail": "https://www.ikea.com/in/en/images/products/vispad-mixing-bowl-set-of-2-white__0711811_pe728490_s5.jpg?f=xl"
@@ -21,7 +21,7 @@
             "rating": 3.5,
             "stock": 94,
             "type": "Bowls",
-            "category": "Kitchen",
+            "category": "Kitchen","Auction":false,"yearOfManufacture":2015,
             "thumbnail": "https://www.ikea.com/in/en/images/products/faergklar-bowl-matt-light-turquoise__0958932_pe805517_s5.jpg?f=s"
            },
         {
@@ -33,7 +33,7 @@
             "rating": 4.5,
             "stock": 94,
             "type": "Bowls",
-            "category": "Kitchen",
+            "category": "Kitchen","Auction":true,"yearOfManufacture":2001,
             "thumbnail": "https://www.ikea.com/in/en/images/products/gladelig-bowl-blue__0986366_pe817070_s5.jpg?f=s"
         }
     ]

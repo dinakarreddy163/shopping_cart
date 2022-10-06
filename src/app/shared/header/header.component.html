@@ -7,7 +7,12 @@
                 <a class="nav-item nav-link navColor">Register</a>
             </div>
             <div class="navbar-nav">
-                <input class="inputSearch icon" type="search">
+                <input type="search" class="inputSearch icon" [formControl]="myControl"  [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.title" (onSelectionChange)="getVal($event)">
+                      {{option?.title}}
+                    </mat-option>
+                  </mat-autocomplete>
                 <a class="nav-item nav-link navColor" style="color:#0d0dd9;">Consumer Electronics</a>
             </div>
         </div>
@@ -16,7 +21,7 @@
                 <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" (click)="signIn()">Sign In</button></a>
                 <!-- <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" [matBadge]="watchList"
                     matBadgePosition="after" matBadgeColor="accent">Watch List</button></a> -->
-                <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" matBadge="8"
+                <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" [matBadge]="cartValue"
                         matBadgePosition="after" matBadgeColor="accent">My Cart</button></a>
                 <a class="nav-item nav-link navColor">
                     <mat-icon>account_circle</mat-icon>

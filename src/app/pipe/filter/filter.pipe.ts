@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(productList: any[], value:any,deliveryOption:any,expandFilter:any) {
-    console.log(typeof value);
+  transform(productList: any[], value:any,deliveryOption:any,desOptions:any) {
+    //console.log(typeof value);
     if(value == "world_wide_ship") return productList.filter(e=>e.worldWideShip==true);
     if(value == "under_50") return productList.filter(e=>e.price<=700);
     if(value == "Jeans") return productList.filter(e=>e.category=='Mens_jeans');

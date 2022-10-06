@@ -24,5 +24,11 @@
                 </app-star-rating>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 testAlign">
+                <button  mat-stroked-button color="primary" *ngIf = "!productDetail.addToCart" (click)="addToCart()">Add To Cart</button>
+                <button  mat-stroked-button color="primary" *ngIf = "productDetail.addToCart" (click)="removeToCart()">Remove From Cart</button>
+            </div>
+        </div>
     </div>
 </div>

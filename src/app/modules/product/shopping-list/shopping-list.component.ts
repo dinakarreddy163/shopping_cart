@@ -25,25 +25,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
   expandFilter: any = [];
   shopping: any;
   selectAuc: any = "Auction";
-
-  matChipList = [
-    {
-      "name": "World Wide Shipping",
-      "value": "world_wide_ship"
-    },
-    {
-      "name": "Under $500",
-      "value": "under_50"
-    },
-    {
-      "name": "Jeans",
-      "value": "Jeans"
-    },
-    {
-      "name": "Pucker Shoes",
-      "value": "pucker_shoes"
-    },
-  ];
+  discOptions: any = [];
+  matChipList: any[] = [];
   layout: any[] = [
     {
       "name": "format_list_bulleted",
@@ -71,40 +54,26 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
   constructor(private matDialog: MatDialog, private product: ProductService, private cd: ChangeDetectorRef, private router: ActivatedRoute, private route: Router, private app: AppService) { }
   ngOnInit(): void {
     this.pageName = this.router.snapshot.params['name'];
+    this.matChipList = [
+      {
+        "name": "World Wide Shipping",
+        "value": "world_wide_ship"
+      },
+      {
+        "name": "Under $500",
+        "value": "under_50"
+      },
+      {
+        "name": "Jeans",
+        "value": "Jeans"
+      },
+      {
+        "name": "Pucker Shoes",
+        "value": "pucker_shoes"
+      },
+    ];
     this.getProducts();
-    // if (this.pageName == 'local_movies') {
-    //   this.getMovies();
-    // }
-    // else if (this.pageName == 'library_music') {
-    //   this.getMusic();
-    // }
-    // else if (this.pageName == 'pets') {
-    //   this.getPets();
-    // }
-    // else if (this.pageName == 'kitchen') {
-    //   this.getKitchen();
-    // }
-    // else if (this.pageName == 'card_travel') {
-    //   this.getTravel();
-    // }
-    // else if (this.pageName == 'nature') {
-    //   this.getNature();
-    // }
-    // else if (this.pageName == 'sports') {
-    //   this.getSports();
-    // }
-    // else if (this.pageName == 'electric_bolt') {
-    //   this.getElectric();
-    // }
-    // else if (this.pageName == 'child_care') {
-    //   this.getChildCare();
-    // }
-    // else if (this.pageName == 'toys') {
-    //   this.getToys();
-    // }
-    // else {
-    //   this.getProducts();
-    // }
+    this.getSearchVal();
   }
   getProducts() {
     this.shopping = this.product.getProducts(this.pageName).subscribe((res: any) => {
@@ -123,171 +92,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
         if (data.id == randomId) data.stock = false; else data.stock = true;
       });
       this.productList = this.auctionList.filter(e => e.Auction == true);
+      this.calDiscount();
+      this.getDiscount();
       this.cd.markForCheck();
     })
   }
-  // getMovies() {
-  //   this.shopping = this.product.getMovies().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getMusic() {
-  //   this.shopping = this.product.getMusic().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       data.audio = new Audio(data.mp3);
-  //       data.playIcon = "play_circle_outline"
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getPets() {
-  //   this.shopping = this.product.getPets().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getKitchen() {
-  //   this.shopping = this.product.getKitchen().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getTravel() {
-  //   this.shopping = this.product.getTravel().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getNature() {
-  //   this.shopping = this.product.getGardun().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getSports() {
-  //   this.shopping = this.product.getSports().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getElectric() {
-  //   this.shopping = this.product.getElectric().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getChildCare() {
-  //   this.shopping = this.product.getChildCare().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
-  // getToys() {
-  //   this.shopping = this.product.getToys().subscribe((res: any) => {
-  //     this.productList = res.products;
-  //     this.productList.map(data => {
-  //       if (data.price > 1000) {
-  //         data.worldWideShip = true;
-  //       } else data.worldWideShip = false;
-  //       const date = new Date();
-  //       data.yearOfManufacture = Math.floor(Math.random() * (1990 - date.getFullYear())) + date.getFullYear();
-  //       let randomId = Math.floor(Math.random() * 15);
-  //       if (data.id == randomId) data.stock = false; else data.stock = true;
-  //     });
-  //     console.log(this.productList)
-  //     this.cd.markForCheck();
-  //   })
-  // }
+
   ngOnDestroy(): void {
     this.shopping.unsubscribe();
   }
@@ -314,7 +124,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
   }
   year: any = [];
   getYear(e: any) {
-    console.log(e.split("-"));
+    //console.log(e.split("-"));
     let year: any = [];
     let list;
     let check = 1;
@@ -383,6 +193,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
     }
   }
   quickView(data: any) {
+    // data.addToCart = false;
     this.matDialog.open(ProductDetailComponent, {
       data: data
     });
@@ -398,6 +209,40 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
       list = this.auctionList;
     }
     this.productList = list;
+    this.calDiscount();
+    this.getDiscount();
+  }
+  getSearchVal() {
+    let value = "";
+    this.app.getValSearch().subscribe((e: any) => {
+      value = e;
+      let data = this.product.searchResult();
+      data = data.filter(e => e.title == value);
+      if (data.length != 0) this.productList = data;
+    })
 
+  }
+  calDiscount() {
+    this.productList.map(e => {
+      let discountAmt = (parseFloat(e.discountPercentage) * parseFloat(e.price)) / 100;
+      e.finalAmt = e.price - discountAmt;
+    })
+  }
+  getDiscount() {
+    let disArr: any = [];
+    this.productList.forEach((val: any) => {
+      disArr.push(val.discountPercentage);
+    });
+    disArr = disArr.filter((val: any, i: any) => {
+      return disArr.indexOf(val) == i;
+    })
+    this.discOptions = disArr;
+  }
+  setDiscount(val: any) {
+    this.auctionVal(this.selectAuc);
+    let list;
+    list = this.productList.filter((e) => e.discountPercentage == val);
+    this.productList = list;
+    if(val == 'all') this.auctionVal(this.selectAuc);
   }
 }

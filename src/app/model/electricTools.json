@@ -8,7 +8,7 @@
             "discountPercentage": 23,
             "rating": 3.5,
             "stock": 94,
-            "type": "electric",
+            "type": "electric","Auction":true,"yearOfManufacture":2001,
             "category": "electric",
             "thumbnail": "https://cdn.moglix.com/p/hW05lWsNv6UfF-xxlarge.jpg"
         },
@@ -19,7 +19,7 @@
             "price": 1050,
             "discountPercentage": 12,
             "rating": 3.5,
-            "stock": 94,
+            "stock": 94,"Auction":true,"yearOfManufacture":2001,
             "type": "electric",
             "category": "electric",
             "thumbnail": "https://cdn.moglix.com/p/RWeR0k4LKctAr-xxlarge.jpg"
@@ -32,7 +32,7 @@
             "discountPercentage": 23,
             "rating": 3.5,
             "stock": 94,
-            "type": "electric",
+            "type": "electric","Auction":true,"yearOfManufacture":2001,
             "category": "electric",
             "thumbnail": "https://cdn.moglix.com/p/ZbNuuQc2GrOA5-large.jpg"
         }

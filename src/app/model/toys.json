@@ -9,7 +9,7 @@
             "rating": 4,
             "stock": 94,
             "type": "Toys",
-            "category": "Toys",
+            "category": "Toys","Auction":true,"yearOfManufacture":2001,
             "thumbnail": "https://www.ikea.com/in/en/images/products/blahaj-soft-toy-shark__0710175_pe727378_s5.jpg?f=s"
         },
         {
@@ -18,7 +18,7 @@
             "description": "An entire set of 5 small and soft friends from the ocean who happily follow your child on adventures. Just the right size to carry in a backpack or tuck in a pocket",
             "price": 599,
             "discountPercentage": 12.96,
-            "rating": 4.0,
+            "rating": 4.0,"Auction":false,"yearOfManufacture":2010,
             "type": "Toys",
             "category": "Toys",
             "thumbnail": "https://www.ikea.com/in/en/images/products/blavingad-5-piece-soft-toy-set-ocean-animals-mixed-colours__1094204_pe863332_s5.jpg?f=s"
@@ -31,7 +31,7 @@
             "discountPercentage": 5.96,
             "rating": 3.5,
             "type": "Toys",
-            "category": "Toys",
+            "category": "Toys","Auction":true,"yearOfManufacture":2020,
             "thumbnail": "https://www.ikea.com/in/en/images/products/jaettelik-soft-toy-dinosaur-dinosaur-brontosaurus__0804796_pe769337_s5.jpg?f=s"
         }
     ]

@@ -7,7 +7,7 @@
             "price": 149,
             "discountPercentage": 23,
             "rating": 3.5,
-            "stock": 94,
+            "stock": 94,"Auction":true,"yearOfManufacture":2010,
             "type": "MotherCare",
             "category": "MotherCare",
             "thumbnail": "https://cdnext.fynd.com/image/data/mothercare/06052022/MCAWKT125-1.jpg?width=600&height=600&mode=fill&fill=solid&fill-color=FFFFFF"
@@ -20,7 +20,7 @@
             "discountPercentage": 23,
             "rating": 3.5,
             "stock": 94,
-            "type": "MotherCare",
+            "type": "MotherCare","Auction":false,"yearOfManufacture":2002,
             "category": "MotherCare",
             "thumbnail": "https://cdnext.fynd.com/image/data/mothercare/11-May-2020/A0578500ML_1.jpg?width=600&height=600&mode=fill&fill=solid&fill-color=FFFFFF"
         },
@@ -33,7 +33,7 @@
             "rating": 2.5,
             "stock": 94,
             "type": "cloth",
-            "category": "MotherCare",
+            "category": "MotherCare","Auction":true,"yearOfManufacture":2001,
             "thumbnail": "https://cdnext.fynd.com/image/data/mothercare/23062022/410263685001_2.jpg?width=228&height=228&mode=fill&fill=solid&fill-color=FFFFFF"
         }
     ]

@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
     });
-    console.log(this.loginForm)
+    //console.log(this.loginForm)
   }
 
   get value(): any {
@@ -24,6 +24,6 @@ export class LoginComponent implements OnInit {
   signIn()
   {
     this.value;
-    console.log(this.value)
+    //console.log(this.value)
   }
 }

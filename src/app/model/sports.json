@@ -9,7 +9,7 @@
             "rating": 3.5,
             "stock": 94,
             "type": "sports",
-            "category": "Sports_Life",
+            "category": "Sports_Life","Auction":false,"yearOfManufacture":2001,
             "thumbnail": "https://n4.sdlcdn.com/imgs/k/d/6/230X258_sharpened/Aurion-Cricket-Bat-Full-Size-SDL722739176-1-8e381.webp"
         },
         {
@@ -20,7 +20,7 @@
             "discountPercentage": 11,
             "rating": 4.5,
             "stock": 94,
-            "type": "sports",
+            "type": "sports","Auction":true,"yearOfManufacture":1999,
             "category": "Sports_Life",
             "thumbnail": "https://n3.sdlcdn.com/imgs/i/d/6/230X258_sharpened/RASCO-RASCO-RUSSIA-RED-Red-SDL686093877-1-39a1d.jpeg"
         },
@@ -28,7 +28,7 @@
             "id": 3,
             "title": "Push Up Board",
             "description": "Push Up Board -with 14-in-one Muscle Toning System, Multifunctional Colour Coded Foldable Push up Board for",
-            "price": 430,
+            "price": 430,"Auction":true,"yearOfManufacture":2015,
             "discountPercentage": 11,
             "rating": 2.5,
             "stock": 94,

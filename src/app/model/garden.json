@@ -8,7 +8,7 @@
             "discountPercentage": 5.96,
             "rating": 2,
             "stock": 94,
-            "type": "Garden",
+            "type": "Garden","Auction":true,"yearOfManufacture":2001,
             "category": "Flowers",
             "thumbnail": "https://www.ikea.com/in/en/images/products/epipremnum-potted-plant-silver-vine__0611637_pe686866_s5.jpg?f=xl"
         },
@@ -19,7 +19,7 @@
             "price": 249,
             "discountPercentage": 5.96,
             "rating": 3,
-            "stock": 94,
+            "stock": 94,"Auction":false,"yearOfManufacture":2005,
             "type": "Garden",
             "category": "Flowers",
             "thumbnail": "https://www.ikea.com/in/en/images/products/philodendron-xanadu-potted-plant__0611631_pe686862_s5.jpg?f=xl"
@@ -28,7 +28,7 @@
             "id": 3,
             "title": "PHALAENOPSIS",
             "description": "Plants can boost your well-being and make the home feel more vibrant. This plant blooms several times per year if you are nice to it. In nature, it hangs on trees and uses air roots to get nutrients.",
-            "price": 599,
+            "price": 599,"Auction":false,"yearOfManufacture":1995,
             "discountPercentage": 5.96,
             "rating": 4,
             "stock": 94,

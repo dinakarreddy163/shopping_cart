@@ -12,6 +12,7 @@ import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { SortPipe } from './pipe/sort/sort.pipe';
 import { LoginComponent } from './modules/login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatBadgeModule,
     MatDialogModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
