@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable, startWith } from 'rxjs';
 import { AppService } from 'src/app/app.service';
@@ -15,24 +16,24 @@ import { headerIcons } from '../../model/headerNav'
 })
 export class HeaderComponent implements OnInit {
   headerIcons: headerIcons[] = data;
-  constructor(private app: AppService, private matDialog: MatDialog, private route: Router, public router: ActivatedRoute) { }
+  constructor(private app: AppService, private matDialog: MatDialog, private route: Router, public router: ActivatedRoute, private matSnackBar: MatSnackBar) { }
   watchList: number = 0;
   myControl = new FormControl('');
-  options: any[] = ["one","two"];
+  options: any[] = ["one", "two"];
   filteredOptions: Observable<any[]> | undefined;
   cartValue: any;
+  isAuth: any;
   ngOnInit(): void {
     //console.log(this.headerIcons);
     this.searchData();
     this.getWatchList();
     this.getCart();
     this.options = this.app.searchResult();
-    // this.options.map(e=>e.title=`${e.title}`)
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
     );
-    //console.log(this.filteredOptions)
+    this.isAuth = localStorage.getItem("isLogin");
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -50,7 +51,12 @@ export class HeaderComponent implements OnInit {
     })
   }
   signIn() {
-    this.matDialog.open(LoginComponent)
+    const signIn = this.matDialog.open(LoginComponent);
+    signIn.afterClosed().subscribe(e => {
+      if (e) {
+        this.isAuth = e;
+      }
+    })
   }
   onClickRouter(routerLink: any) {
     this.reloadComponent(routerLink);
@@ -65,12 +71,19 @@ export class HeaderComponent implements OnInit {
     //console.log(set)
   }
   getVal(e: any) {
-    //console.log(e);
     this.app.postValSearch(e.source.value);
   }
   getCart() {
     this.app.getValAddToCart().subscribe(e => {
       this.cartValue = e;
     })
+  }
+  signOut() {
+    this.isAuth = "false";
+    localStorage.clear();
+  }
+  getMyCart() {
+    if (this.isAuth != "true") this.matSnackBar.open("Please sign in to application", "Close");
+    this.route.navigate(["order/cart-list"]);
   }
 }

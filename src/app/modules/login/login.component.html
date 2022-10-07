@@ -1,5 +1,5 @@
 <div class="container" style="
-height: 17rem;
+height: 18rem;
 width: 34rem;
 ">
 <p style="font-weight: bold;
@@ -24,11 +24,11 @@ font-size: 1rem;">Login</p>
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password" class="form-control" formControlName="password">
-                    <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors">
+                    <div *ngIf="loginForm.controls.password.touched &&loginForm.controls.password.errors">
                         <p class="alertColor" *ngIf="loginForm.controls.password.errors.required">Password Was
                             Required..
                         </p>
-                        <p class="alertColor" *ngIf="!loginForm.controls.password.errors.minLength">Password Must Be 8 Char..
+                        <p class="alertColor" *ngIf="!loginForm.controls.password.errors.minLength">Password Must Be 8 ..
                         </p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ font-size: 1rem;">Login</p>
             <div class="col-lg-12">
                 <div class="form-group">
                     <button type="button" class="btn btn-success" (click)="signIn()"
-                       >Login</button>
+                        [disabled]="loginForm.status=='INVALID'">Login</button>
                 </div>
             </div>
         </div>

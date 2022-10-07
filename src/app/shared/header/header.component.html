@@ -18,11 +18,12 @@
         </div>
         <div class="collapse navbar-collapse navLeft" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" (click)="signIn()">Sign In</button></a>
+                <a class="nav-item nav-link navColor" *ngIf="isAuth!='true'"> <button mat-stroked-button color="primary" (click)="signIn()">Sign In</button></a>
+                <a class="nav-item nav-link navColor" *ngIf="isAuth == 'true'"> <button mat-stroked-button color="primary" (click)="signOut()">Sign Out</button></a>
                 <!-- <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" [matBadge]="watchList"
                     matBadgePosition="after" matBadgeColor="accent">Watch List</button></a> -->
                 <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" [matBadge]="cartValue"
-                        matBadgePosition="after" matBadgeColor="accent" [routerLink]="['order/cart-list']">My Cart</button></a>
+                        matBadgePosition="after" matBadgeColor="accent" (click)="getMyCart()">My Cart</button></a>
                 <a class="nav-item nav-link navColor">
                     <mat-icon>account_circle</mat-icon>
                 </a>

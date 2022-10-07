@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: any;
-  constructor() { }
+  constructor(private dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -21,9 +22,9 @@ export class LoginComponent implements OnInit {
   get value(): any {
     return this.loginForm.controls;
   }
-  signIn()
-  {
-    this.loginForm
-    localStorage.setItem('isLogin',"true");
+  signIn() {
+    localStorage.setItem('isLogin', "true");
+    this.dialogRef.close("true");
+
   }
 }
