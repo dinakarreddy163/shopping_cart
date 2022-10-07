@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', [Validators.required, Validators.minLength(8)])
     });
     //console.log(this.loginForm)
   }
@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   }
   signIn()
   {
+    this.loginForm
     localStorage.setItem('isLogin',"true");
   }
 }

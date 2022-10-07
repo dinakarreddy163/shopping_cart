@@ -18,16 +18,16 @@ export class HeaderComponent implements OnInit {
   constructor(private app: AppService, private matDialog: MatDialog, private route: Router, public router: ActivatedRoute) { }
   watchList: number = 0;
   myControl = new FormControl('');
-  options: any[] = ["one"];
+  options: any[] = ["one","two"];
   filteredOptions: Observable<any[]> | undefined;
-  cartValue:any;
+  cartValue: any;
   ngOnInit(): void {
     //console.log(this.headerIcons);
     this.searchData();
     this.getWatchList();
     this.getCart();
     this.options = this.app.searchResult();
-    // this.options.map(e=>e.title=`${e.title}-${e.description}`)
+    // this.options.map(e=>e.title=`${e.title}`)
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
@@ -36,7 +36,8 @@ export class HeaderComponent implements OnInit {
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.title.toLowerCase(filterValue));
+
+    return this.options.filter(option => option.title.toLowerCase().includes(filterValue));
   }
 
   iconActive(data: any) {
@@ -49,9 +50,7 @@ export class HeaderComponent implements OnInit {
     })
   }
   signIn() {
-    this.matDialog.open(LoginComponent, {
-      width: '250px'
-    })
+    this.matDialog.open(LoginComponent)
   }
   onClickRouter(routerLink: any) {
     this.reloadComponent(routerLink);
@@ -69,9 +68,8 @@ export class HeaderComponent implements OnInit {
     //console.log(e);
     this.app.postValSearch(e.source.value);
   }
-  getCart()
-  {
-    this.app.getValAddToCart().subscribe(e=>{
+  getCart() {
+    this.app.getValAddToCart().subscribe(e => {
       this.cartValue = e;
     })
   }

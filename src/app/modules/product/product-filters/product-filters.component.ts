@@ -49,8 +49,7 @@ export class ProductFiltersComponent implements OnInit {
   sortByYear(val: any) {
     this.year.emit(val)
   }
-  expandFliter(val:any)
-  {
+  expandFliter(val: any) {
     this.expand.emit(val.name);
   }
 }

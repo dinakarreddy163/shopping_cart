@@ -2,9 +2,11 @@ import {NestedTreeControl} from '@angular/cdk/tree';
 import { AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import {Component,OnInit} from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { Router } from '@angular/router';
 import data from '../../../model/departments.json';
 interface FoodNode {
   name: string;
+  icon_name?: string;
   children?: FoodNode[];
 }
 
@@ -19,7 +21,7 @@ export class ProductDepartmentsComponent implements OnInit,AfterViewInit {
   treeControl = new NestedTreeControl<FoodNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<FoodNode>();
 
-  constructor(private cdr : ChangeDetectorRef) {
+  constructor(private cdr : ChangeDetectorRef,private route : Router) {
     this.dataSource.data = TREE_DATA;
   }
 
@@ -32,5 +34,13 @@ export class ProductDepartmentsComponent implements OnInit,AfterViewInit {
     const referenceToNode = this.dataSource.data.find(d => d.name === 'Electronics')
 
   // this.treeControl.expand('Electronics');
+  }
+  onClick(node:any){
+   this.reloadComponent(node.routerLink);
+  }
+  reloadComponent(routerLink: any) {
+    this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.route.onSameUrlNavigation = 'reload';
+    this.route.navigate([routerLink]);
   }
 }

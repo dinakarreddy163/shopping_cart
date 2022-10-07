@@ -7,6 +7,9 @@ const routes: Routes = [
     path: '', loadChildren: () => import('./modules/product/product.module').then(e => e.ProductModule)
   },
   {
+    path: 'order', loadChildren: () => import('./modules/order/order.module').then(e => e.OrderModule)
+  },
+  {
     path: "**", component: ErrorPageComponent
   }
 ];

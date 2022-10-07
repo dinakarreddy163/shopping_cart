@@ -2,7 +2,7 @@
     "products": [
         {
             "id": 1,
-            "title": "RRR",
+            "title": "Music RRR",
             "description": "A fearless revolutionary and an officer in the British force, who once shared a deep bond, decide to join forces and chart out an inspirational path of freedom against the despotic rulers.",
             "price": 15,
             "discountPercentage": 12.96,
@@ -16,7 +16,7 @@
         },
         {
             "id": 2,
-            "title": "KGF",
+            "title": "Music KGF",
             "description": "Rocky, a young man, seeks power and wealth in order to fulfil a promise to his dying mother. His quest takes him to Mumbai, where he gets involved with the notorious gold mafia.",
             "price": 10,
             "discountPercentage": 12.96,
@@ -30,7 +30,7 @@
         },
         {
             "id": 3,
-            "title": "Vikram",
+            "title": "Music Vikram",
             "description": "A special agent investigates a murder committed by a masked group of serial killers. However, a tangled maze of clues soon leads him to the drug kingpin of",
             "price": 20,
             "discountPercentage": 12.96,
@@ -44,7 +44,7 @@
         },
         {
             "id": 4,
-            "title": "Brahmastra",
+            "title": "Music Brahmastra",
             "description": "A young man on the brink of falling in love gets his world turned upside down when he discovers he has the power to control fire and a connection to a secret society of guardians.",
             "price": 20,
             "discountPercentage": 1.96,

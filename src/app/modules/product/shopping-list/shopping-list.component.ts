@@ -215,12 +215,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
   getSearchVal() {
     let value = "";
     this.app.getValSearch().subscribe((e: any) => {
-   
       value = e;
       let data = this.product.searchResult();
       data = data.filter(e => e.title == value);
-      if (data.length != 0){ this.productList = data; return ;}
-      this.app.postValSearch('')
+      if (data.length != 0) { this.productList = data; return; }
     })
 
   }
@@ -245,6 +243,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
     let list;
     list = this.productList.filter((e) => e.discountPercentage == val);
     this.productList = list;
-    if(val == 'all') this.auctionVal(this.selectAuc);
+    if (val == 'all') this.auctionVal(this.selectAuc);
+    this.calDiscount();
   }
 }

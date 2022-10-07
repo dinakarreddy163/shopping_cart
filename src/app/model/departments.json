@@ -3,7 +3,76 @@
         "name": "All Categories",
         "children": [
             {
-                "name": ""
+                "icon": "change_history",
+                "name": "Clothing & Shoes",
+                "active": false,
+                "routerLink": "/shopping/cloths"
+            },
+            {
+                "icon": "local_movies",
+                "name": "Entertainment",
+                "active": false,
+                "routerLink": "/shopping/local_movies"
+            },
+            {
+                "icon": "library_music",
+                "name": "Music",
+                "active": false,
+                "routerLink": "/shopping/library_music"
+            },
+            {
+                "icon": "sports",
+                "name": "Sports & Life Style",
+                "active": false,
+                "routerLink": "/shopping/sports"
+            },
+            {
+                "icon": "pets",
+                "name": "Pets",
+                "active": false,
+                "routerLink": "/shopping/pets"
+            },
+            {
+                "icon": "kitchen",
+                "name": "Kitchen Accessories",
+                "active": false,
+                "routerLink": "/shopping/kitchen"
+            },
+            {
+                "icon": "card_travel",
+                "name": "Travel",
+                "active": false,
+                "routerLink": "/shopping/card_travel"
+            },
+            {
+                "icon": "nature",
+                "name": "Nature",
+                "active": false,
+                "routerLink": "/shopping/nature"
+            },
+            {
+                "icon": "electric_bolt",
+                "name": "Electric",
+                "active": false,
+                "routerLink": "/shopping/electric_bolt"
+            },
+            {
+                "icon": "child_care",
+                "name": "Mother Care",
+                "active": false,
+                "routerLink": "/shopping/child_care"
+            },
+            {
+                "icon": "toys",
+                "name": "Toys & Entertainment",
+                "active": false,
+                "routerLink": "/shopping/toys"
+            },
+            {
+                "icon": "filter_vintage",
+                "name": "Vintage",
+                "active": false,
+                "routerLink": "/shopping/filter_vintage"
             }
         ]
     },
