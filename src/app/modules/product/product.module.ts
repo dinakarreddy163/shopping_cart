@@ -26,7 +26,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 
 
 const route:Routes=[{
-  path:'shopping/:name',component:ShoppingListComponent
+  path:'shopping/:name',component:ShoppingListComponent,title:"Shopping"
 }]
 
 @NgModule({

@@ -64,11 +64,6 @@
         "icon_name": "Toys & Entertainment",
         "active": false,
         "routerLink": "/shopping/toys"
-    },
-    {
-        "icon": "filter_vintage",
-        "icon_name": "Vintage",
-        "active": false,
-        "routerLink": "/shopping/filter_vintage"
     }
+  
 ]

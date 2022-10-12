@@ -7,6 +7,7 @@ import { map, Observable, startWith } from 'rxjs';
 import { AppService } from 'src/app/app.service';
 import { LoginComponent } from 'src/app/modules/login/login.component';
 import { ProductService } from 'src/app/modules/product/product.service';
+import { RegisterComponent } from 'src/app/modules/register/register.component';
 import data from '../../model/header.json';
 import { headerIcons } from '../../model/headerNav'
 @Component({
@@ -18,8 +19,8 @@ export class HeaderComponent implements OnInit {
   headerIcons: headerIcons[] = data;
   constructor(private app: AppService, private matDialog: MatDialog, private route: Router, public router: ActivatedRoute, private matSnackBar: MatSnackBar) { }
   watchList: number = 0;
-  myControl = new FormControl('');
-  options: any[] = ["one", "two"];
+  searchValue:any;
+  options: any[] = [];
   filteredOptions: Observable<any[]> | undefined;
   cartValue: any;
   isAuth: any;
@@ -28,29 +29,30 @@ export class HeaderComponent implements OnInit {
     this.searchData();
     this.getWatchList();
     this.getCart();
-    this.options = this.app.searchResult();
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
+    // this.options = this.app.searchResult();
+    // this.filteredOptions = this.myControl.valueChanges.pipe(
+    //   startWith(''),
+    //   map(value => this._filter(value || '')),
+    // );
     this.isAuth = localStorage.getItem("isLogin");
   }
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.title.toLowerCase().includes(filterValue));
-  }
+  //   return this.options.filter(option => option.title.toLowerCase().includes(filterValue));
+  // }
 
   iconActive(data: any) {
     this.headerIcons.map(e => e.active = false);
     data.active = true;
   }
   getWatchList() {
-    this.app.getVal().subscribe(data => {
-      this.watchList = data;
+    this.app.getVal().subscribe((data:any) => {
+      this.watchList = data.length;
     })
   }
   signIn() {
+    debugger
     const signIn = this.matDialog.open(LoginComponent);
     signIn.afterClosed().subscribe(e => {
       if (e) {
@@ -85,5 +87,16 @@ export class HeaderComponent implements OnInit {
   getMyCart() {
     if (this.isAuth != "true") this.matSnackBar.open("Please sign in to application", "Close");
     this.route.navigate(["order/cart-list"]);
+  }
+  getWatch() {
+    this.route.navigate(["order/watch-list"]);
+  }
+  search(e:Event)
+  {
+    this.app.setSearch(this.searchValue);
+  }
+  regiter()
+  {
+    this.matDialog.open(RegisterComponent);
   }
 }

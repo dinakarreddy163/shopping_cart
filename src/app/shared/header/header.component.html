@@ -3,28 +3,33 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a class="navbar-brand" href="#">ShopIn</a>
-                <a class="nav-item nav-link navColor">Sell On ShopIn</a>
-                <a class="nav-item nav-link navColor">Register</a>
+                <a class="nav-item nav-link  textColor">Sell On ShopIn</a>
+                <a class="nav-item nav-link  textColor" (click)="regiter()">Register</a>
             </div>
             <div class="navbar-nav">
-                <input type="search" class="inputSearch icon" [formControl]="myControl"  [matAutocomplete]="auto">
+                <input type="search" class="inputSearch icon" [(ngModel)]="searchValue" (keyup)="search($event)"
+                    [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.title" (onSelectionChange)="getVal($event)">
-                      {{option?.title}}
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.title"
+                        (onSelectionChange)="getVal($event)">
+                        {{option?.title}}
                     </mat-option>
-                  </mat-autocomplete>
-                <a class="nav-item nav-link navColor" style="color:#0d0dd9;">Consumer Electronics</a>
+                </mat-autocomplete>
+                <a class="nav-item nav-link textColor" style="color:#0d0dd9;">Consumer Electronics</a>
             </div>
         </div>
         <div class="collapse navbar-collapse navLeft" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link navColor" *ngIf="isAuth!='true'"> <button mat-stroked-button color="primary" (click)="signIn()">Sign In</button></a>
-                <a class="nav-item nav-link navColor" *ngIf="isAuth == 'true'"> <button mat-stroked-button color="primary" (click)="signOut()">Sign Out</button></a>
-                <!-- <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" [matBadge]="watchList"
-                    matBadgePosition="after" matBadgeColor="accent">Watch List</button></a> -->
-                <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" [matBadge]="cartValue"
-                        matBadgePosition="after" matBadgeColor="accent" (click)="getMyCart()">My Cart</button></a>
-                <a class="nav-item nav-link navColor">
+                <a class="nav-item nav-link textColor" *ngIf="isAuth!='true'"> <button mat-stroked-button
+                        color="primary" (click)="signIn()">Sign In</button></a>
+                <a class="nav-item nav-link textColor" *ngIf="isAuth == 'true'"> <button mat-stroked-button
+                        color="primary" (click)="signOut()">Sign Out</button></a>
+                <a class="nav-item nav-link navColor"> <button mat-stroked-button color="primary" [matBadge]="watchList"
+                        matBadgePosition="after" matBadgeColor="accent" (click)="getWatch()">Watch</button></a>
+                <a class="nav-item nav-link textColor"> <button mat-stroked-button color="primary"
+                        [matBadge]="cartValue" matBadgePosition="after" matBadgeColor="accent" (click)="getMyCart()">My
+                        Cart</button></a>
+                <a class="nav-item nav-link textColor">
                     <mat-icon>account_circle</mat-icon>
                 </a>
             </div>
@@ -36,9 +41,10 @@
     <nav class="navbar navbar-expand-lg header">
         <div class="navbar-nav">
             <a class="nav-item nav-link navColorIcon" *ngFor="let data of headerIcons;let i = index"
-                (click)="iconActive(data)"  (click)="onClickRouter(data.routerLink)" [routerLink]="data.routerLink" routerLinkActive="navColorIconActive" >
+                (click)="iconActive(data)" (click)="onClickRouter(data.routerLink)" [routerLink]="data.routerLink"
+                routerLinkActive="navColorIconActive">
                 <mat-icon id="icon" class="iconSet" style="height:18px">{{data.icon}}</mat-icon>
-                <label style="margin-left:12px">{{data.icon_name}}</label>
+                <label style="margin-left:0px" class="textColor">{{data.icon_name}}</label>
                 <!-- [ngClass]="data.active?'navColorIconActive':''" -->
             </a>
         </div>

@@ -25,6 +25,19 @@ export class ProductDetailComponent implements OnInit {
     })
     this.app.postValAddToCart(getVal + 1);
     this.productDetail.addToCart = true;
+    let cartList: any[] = [];
+    cartList.push(this.productDetail);
+    if(localStorage.getItem('cartList')){
+      let storedList = localStorage.getItem('cartList');
+      storedList = JSON.parse(storedList!);
+      // cartList.push(storedList);
+      cartList = cartList.concat(storedList);
+      // cartList = cartList.filter((e,i)=>{
+      //   let getIndex = cartList.findIndex(e.title);
+      //   return cartList.indexOf(getIndex)==i;
+      // })
+    }
+    localStorage.setItem('cartList',JSON.stringify(cartList));
   }
   removeToCart()
   {
@@ -34,5 +47,13 @@ export class ProductDetailComponent implements OnInit {
     })
     this.app.postValAddToCart(getVal - 1);
     this.productDetail.addToCart = false;
+    let cartList: any[] = [];
+    if(localStorage.getItem('cartList')){
+      let storedList = localStorage.getItem('cartList');
+      storedList = JSON.parse(storedList!);
+      cartList = cartList.concat(storedList);
+      cartList = cartList.filter(e=>e.title!=this.productDetail.title);
+    }
+    localStorage.setItem('cartList',JSON.stringify(cartList));
   }
 }

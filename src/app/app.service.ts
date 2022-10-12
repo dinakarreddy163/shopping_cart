@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, ReplaySubject } from 'rxjs';
 import entertainment from './model/entertainment.json';
 import cloths from './model/cloths.json';
 import music from './model/music.json';
@@ -18,6 +18,8 @@ export class AppService {
   public behaviourSubject = new BehaviorSubject(0);
   public behaviourSubjectCart = new BehaviorSubject(0);
   public behaviourSubjectSearch = new Subject();
+  public replaySubject = new ReplaySubject();
+  public seachValue = new BehaviorSubject<string>('');
   constructor() { }
 
   postVal(val: any) {
@@ -45,4 +47,21 @@ export class AppService {
   getValAddToCart() {
     return this.behaviourSubjectCart.asObservable();
   }
+  postCart(val:any)
+  {
+    this.replaySubject.next(val);
+  }
+  getCart()
+  {
+   return this.replaySubject.asObservable();
+  }
+  setSearch(val:string)
+  {
+    this.seachValue.next(val)
+  }
+  getSearch()
+  {
+    return this.seachValue.asObservable();
+  }
+
 }

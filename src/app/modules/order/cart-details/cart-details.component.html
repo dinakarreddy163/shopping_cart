@@ -5,29 +5,32 @@
         </div>
         <div class="row">
             <div class="col-lg-8">
-                <mat-card>
+                <mat-card *ngFor="let list of productList">
                     <div class="row">
                         <div class="col-lg-10">
                             <mat-card>
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="layoutRow">
+                                            <mat-icon style="float: right; cursor:pointer"
+                                                (click)="deleteProduct(list)">delete_outline</mat-icon>
+
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-960,/pub/media/catalog/product/6/5/655f498NF_ADIAA00008698_1.jpg?rnd=20200526195200"
-                                                        class="imgRow">
+                                                    <img [src]="list.thumbnail" class="imgRow">
                                                 </div>
                                                 <div class="col-lg-5 testAlign">
-                                                    <p>Shoes</p>
+                                                    <p>{{list.title}}</p>
                                                     <p class="">Size 10
                                                     </p>
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <del>1999/-</del>
-                                                            <p class="price">999/-</p>
+                                                            <del>{{list.price}}</del>
+                                                            <p class="price">{{list.finalAmt | currency:'USD':'symbol'}}
+                                                            </p>
                                                         </div>
                                                         <div class="col-lg-6">
-                                                            <p class="priceDis">10% OFF</p>
+                                                            <p class="priceDis">{{list.discountPercentage}}%</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -45,18 +48,18 @@
                     <label class="orderSum">Order Summary</label>
                     <div class="row">
                         <div class="col-lg-6">
-                            <label class="orderSumDetail">Subtotal</label>
+                            <label class="orderSumDetail">Total On MRP</label>
                         </div>
                         <div class="col-lg-6">
-                            <label class="orderSumDetail">$999</label>
+                            <label class="orderSumDetail">{{totalAmt | currency:'USD':'symbol'}}</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <label class="orderSumDetail">Shipping Charges</label>
+                            <label class="orderSumDetail">Discount On MRP</label>
                         </div>
                         <div class="col-lg-6">
-                            <label class="orderSumDetail">$10</label>
+                            <label class="orderSumDetail">{{discountAmt | currency:'USD':'symbol'}}</label>
                         </div>
                     </div>
                     <div class="row">
@@ -64,13 +67,13 @@
                             <label class="orderSumDetail">Final Total</label>
                         </div>
                         <div class="col-lg-6">
-                            <label class="orderSumDetail">$1009</label>
+                            <label class="orderSumDetail">{{totalAmt-discountAmt | currency:'USD':'symbol'}}</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <button mat-stroked-button color="primary" style="    margin-left: 6rem;
-                            margin-top: 2rem;">CheckOut Now</button>
+                            <button mat-stroked-button color="primary" style="margin-left: 6rem;
+                            margin-top: 2rem;" (click)="checkOut()">CheckOut Now</button>
                         </div>
                     </div>
                 </mat-card>

@@ -92,4 +92,12 @@ export class ProductService {
     return [...cloths.products, ...toys.products, ...entertainment.products, ...music.products, ...pets.products, ...kitchen.products
       , ...travel.products, ...gardun.products, ...sports.products, ...electric.products, ...childCare.products]
   }
+
+  getCal(productList:any[])
+  {
+     return  productList.map(e => {
+        let discountAmt = (parseFloat(e.discountPercentage) * parseFloat(e.price)) / 100;
+        e.finalAmt = e.price - discountAmt;
+      })
+  }
 }

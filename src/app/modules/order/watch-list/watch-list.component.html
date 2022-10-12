@@ -1,0 +1,40 @@
+<ng-container class="container">
+    <mat-card>
+        <div class="flexCon">
+            <label class="testAlign">Watch List</label>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let list of productList">
+                <mat-card>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="layoutRow">
+                                <mat-icon style="float: right; cursor:pointer">delete_outline</mat-icon>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <img [src]="list.thumbnail" class="imgRow">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>{{list.title}}</p>
+                                        <p class="">Size 10
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <del>{{list.price}}</del>
+                                                <p class="price">{{list.finalAmt | currency:'USD':'symbol'}}
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <p class="priceDis">{{list.discountPercentage}}%</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </mat-card>
+</ng-container>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit,OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
   
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit(): void {
+  }
   title = 'shopping_cart';
 }

@@ -74,6 +74,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
     ];
     this.getProducts();
     this.getSearchVal();
+    this.getSearch();
   }
   getProducts() {
     this.shopping = this.product.getProducts(this.pageName).subscribe((res: any) => {
@@ -172,7 +173,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
   }
   setWatch() {
     const watch = this.productList.filter(e => e.watch == true)
-    this.app.postVal(watch.length);
+    this.app.postVal(watch);
   }
   ngDoCheck(): void {
   }
@@ -245,5 +246,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
     this.productList = list;
     if (val == 'all') this.auctionVal(this.selectAuc);
     this.calDiscount();
+  }
+  getSearch() {
+    this.app.getSearch().subscribe(res => {
+      console.log(res);
+      this.auctionVal(this.selectAuc);
+      if (res != "") this.productList = this.productList.filter(item => item.title.toLowerCase().includes(res))
+    })
   }
 }

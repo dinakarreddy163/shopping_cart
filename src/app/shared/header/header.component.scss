@@ -134,3 +134,15 @@ option:hover,
 .active {
   background-color: red;
 }
+.textColor{
+  text-align: center;
+  font-weight: 400;
+  font-style: normal;
+  color: #1c1b1b;
+  transition: color 0.2s ease-in-out;
+  /* letter-spacing: 0.2em; */
+  margin-bottom: 2rem;
+  font-size: 12px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
