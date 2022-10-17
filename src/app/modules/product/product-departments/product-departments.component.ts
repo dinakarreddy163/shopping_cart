@@ -1,5 +1,5 @@
 import {NestedTreeControl} from '@angular/cdk/tree';
-import { AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, EventEmitter, Output } from '@angular/core';
 import {Component,OnInit} from '@angular/core';
 import {MatTreeNestedDataSource} from '@angular/material/tree';
 import { Router } from '@angular/router';
@@ -18,6 +18,7 @@ const TREE_DATA: FoodNode[] = data;
   styleUrls: ['./product-departments.component.scss']
 })
 export class ProductDepartmentsComponent implements OnInit,AfterViewInit {
+  @Output() shopingList = new EventEmitter();
   treeControl = new NestedTreeControl<FoodNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<FoodNode>();
 
@@ -42,5 +43,9 @@ export class ProductDepartmentsComponent implements OnInit,AfterViewInit {
     this.route.routeReuseStrategy.shouldReuseRoute = () => false;
     this.route.onSameUrlNavigation = 'reload';
     this.route.navigate([routerLink]);
+  }
+  getCloths(node:String)
+  {
+    this.shopingList.emit(node);
   }
 }

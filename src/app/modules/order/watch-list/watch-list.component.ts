@@ -11,7 +11,7 @@ export class WatchListComponent implements OnInit {
   constructor(private app:AppService) { }
 
   ngOnInit(): void {
-    this.getWatchList();
+    this.getWatchList()
   }
   getWatchList()
   {

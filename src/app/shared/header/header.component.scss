@@ -1,103 +1,114 @@
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #f6f6f6;
-    color: #6e6e6e;
-    font-weight: 600;
-    font-size: 12px;
-    font-family: sans-serif;
-  }
-
-  .logo{
-    background: #53439a;
-    height: 29px;
-    color: white;
-    width: 31px;
-    margin-left: 4px;
-    padding-left: 9px;
-    padding-top: 5px;
-    font-size: 22px;
-  }
-.logoName{
-    color: #050505;
-    font-family: cursive;  
-    margin-left: 8px;
-    font-size: 1rem;
+.spacer {
+  flex: 1;
 }
 
-.navList{
-    position: relative;
-    left: 1rem;
-    cursor: pointer;
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #f6f6f6;
+  color: #6e6e6e;
+  font-weight: 600;
+  font-size: 12px;
+  font-family: sans-serif;
 }
-.navLeft{
-    justify-content: flex-end;
+
+.logo {
+  background: #53439a;
+  height: 29px;
+  color: white;
+  width: 31px;
+  margin-left: 4px;
+  padding-left: 9px;
+  padding-top: 5px;
+  font-size: 22px;
 }
-.cartItem{
-    background-color: red;
-    border-radius: 20rem;
-    height: 17px;
-    width: 14px;
-    padding-left: 3px;
-    margin-right: 27re;
-    margin-left: -1rem;
-    font-weight: bold;
+
+.logoName {
+  color: #050505;
+  font-family: cursive;
+  margin-left: 8px;
+  font-size: 1rem;
 }
-.inputSearch{
+
+.navList {
+  position: relative;
+  left: 1rem;
+  cursor: pointer;
+}
+
+.navLeft {
+  justify-content: flex-end;
+}
+
+.cartItem {
+  background-color: red;
+  border-radius: 20rem;
+  height: 17px;
+  width: 14px;
+  padding-left: 3px;
+  margin-right: 27re;
+  margin-left: -1rem;
+  font-weight: bold;
+}
+
+.inputSearch {
   border-radius: 21rem;
   width: 27rem;
-  margin-left: 10rem;
+  margin-left: 7rem;
   height: -1rem;
   height: 26px;
   background-color: #d8d8d8;
   margin-top: 5px;
 }
-.iconSet{
+
+.iconSet {
   padding-left: 32%;
-    width: unset;
-    font-size: 19px;
+  width: unset;
+  font-size: 19px;
 }
-.navColor{
+
+.navColor {
   font-family: sans-serif;
-    color: #191919;
-    font-size: 14px;
+  color: #191919;
+  font-size: 14px;
 }
-.navColorIcon{
+
+.navColorIcon {
   font-family: sans-serif;
   color: #878282;
   padding-right: 12px;
   font-size: 9px;
   margin-right: 4px;
 }
-.navColorIcon:hover{
- cursor: pointer;
+
+.navColorIcon:hover {
+  cursor: pointer;
   color: #058e92;
 }
-.navColorIconActive{
+
+.navColorIconActive {
   color: #6b5ced;
   height: 61px;
   border-radius: 15px;
   background-color: #d3cfee;
- }
- .icon{
+}
+
+.icon {
   padding-left: 25px;
   background: url(https://static.thenounproject.com/png/101791-200.png) no-repeat left;
   background-size: 20px;
 
 }
-.datalist{
+
+.datalist {
   background-color: red;
 }
+
 input {
   font-size: 18px;
   padding: 5px;
@@ -134,7 +145,8 @@ option:hover,
 .active {
   background-color: red;
 }
-.textColor{
+
+.textColor {
   text-align: center;
   font-weight: 400;
   font-style: normal;

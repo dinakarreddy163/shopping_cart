@@ -10,6 +10,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatStepperModule } from '@angular/material/stepper';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { WatchListComponent } from './watch-list/watch-list.component';
+import { StarRatingComponent } from '../product/star-rating/star-rating.component';
+import { ProductModule } from '../product/product.module';
+import { AddressComponent } from './address/address.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {  MatExpansionModule } from '@angular/material/expansion';
+import { PaymentOptionsComponent } from './payment-options/payment-options.component';
+import { MatRadioModule } from '@angular/material/radio'
 
 const route: Routes = [{
   path: 'cart-list',
@@ -17,7 +24,7 @@ const route: Routes = [{
 },
 {
   path: 'watch-list',
-  component: WatchListComponent
+  component: WatchListComponent,title:'Order'
 }]
 
 @NgModule({
@@ -25,6 +32,8 @@ const route: Routes = [{
     CartDetailsComponent,
     CheckoutComponent,
     WatchListComponent,
+    AddressComponent,
+    PaymentOptionsComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +42,12 @@ const route: Routes = [{
     RouterModule.forChild(route),
     HttpClientModule,
     MatIconModule,
-    MatStepperModule
-  ]
+    MatStepperModule,
+    ProductModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    MatRadioModule
+  ],
+
 })
 export class OrderModule { }

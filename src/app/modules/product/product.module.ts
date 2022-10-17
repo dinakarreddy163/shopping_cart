@@ -23,6 +23,7 @@ import { SortPipe } from 'src/app/pipe/sort/sort.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 const route:Routes=[{
@@ -55,9 +56,11 @@ const route:Routes=[{
     MatExpansionModule,
     MatCheckboxModule,
     MatTooltipModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
     
   ],
-  providers:[ProductService]
+  providers:[ProductService],
+  exports:[StarRatingComponent]
 })
 export class ProductModule { }

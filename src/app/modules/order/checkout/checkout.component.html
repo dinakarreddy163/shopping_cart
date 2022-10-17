@@ -1,14 +1,24 @@
-<mat-stepper #stepper>
-    <mat-step>
-        <ng-template matStepLabel>Address</ng-template>
-        <p>Address</p>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Payment Options</ng-template>
-        <p>Payment Options</p>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        <p>You are now done.</p>
-    </mat-step>
-</mat-stepper>
+<div style="width: 62rem;height:23rem">
+    <mat-stepper [linear]="true" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Address</ng-template>
+            <app-address></app-address>
+            <div style="float: right;
+            margin-top: 2rem;">
+                <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Payment Options</ng-template>
+            <app-payment-options (orderCheckout)="getOrder($event)"></app-payment-options>
+            <div style="float: right;
+            margin-top: 2rem;">
+                <button mat-raised-button color="primary" [disabled]="!checkOrder" matStepperNext>Order Submit</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+        </mat-step>
+    </mat-stepper>
+</div>

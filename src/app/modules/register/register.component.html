@@ -32,14 +32,14 @@ font-size: 1rem;">Register</p>
                     </div>
                 </div>
             </div>
-       
+
             <div class="col-lg-4">
                 <div class="form-group">
                     <label>Email</label>
                     <input type="text" class="form-control" formControlName="email"
                         [ngClass]="register.controls.email.touched && register.controls.email.errors?'inputBroder':''">
                     <div *ngIf="register.controls.email.touched && register.controls.email.errors">
-                        <p *ngIf="register.controls.email.errors.required" style="color: red;">Last name is
+                        <p *ngIf="register.controls.email.errors.required" style="color: red;">Email is
                             required</p>
                         <p *ngIf="register.controls.email.errors.email" style="color: red;">In correct email format </p>
                     </div>
@@ -61,6 +61,10 @@ font-size: 1rem;">Register</p>
                             <p *ngIf="register.controls.passwordGroup.controls.password.errors.minlength"
                                 style="color: red;">Password need
                                 atleast 8 letters</p>
+                            <p *ngIf="register.controls.passwordGroup.controls.password.errors.passwordStrength"
+                                style="color: red;">Password
+                                {{register.controls.passwordGroup.controls.password.errors.passwordStrength}} required
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -75,7 +79,7 @@ font-size: 1rem;">Register</p>
                                 style="color: red;">Password is
                                 required</p>
                             <p *ngIf="register.controls.passwordGroup.controls.confirmPassword.errors.minlength"
-                                style="color: red;">Password need
+                                style="color: red;">Conform Password need
                                 atleast 8 letters</p>
                         </div>
                     </div>

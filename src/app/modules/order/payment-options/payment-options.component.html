@@ -1,0 +1,72 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenStateCard = true" (closed)="panelOpenStateCard = false" expanded="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Card Details
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group style="display: flex;" aria-label="Select an option" (change)="payment($event)">
+            <mat-radio-button *ngFor="let card of cardList;let i = index" [value]="card.cardName">{{card.cardName}}
+            </mat-radio-button><br>
+            <mat-radio-button value="100">Pay On Delivery</mat-radio-button><br>
+        </mat-radio-group>
+    </mat-expansion-panel><br>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Credit/Debit Card
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <form [formGroup]="cardDetails">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" maxlength="16" class="form-control" formControlName="cardNumber">
+                    </div>
+                </div>
+                <div *ngIf="cardDetails.controls.cardNumber.touched && cardDetails.controls.cardNumber.errors">
+                    <p style="color:red;">Card number is required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <label>Card Name</label>
+                        <input type="text" class="form-control" formControlName="cardName">
+                        <div *ngIf="cardDetails.controls.cardName.touched && cardDetails.controls.cardName.errors">
+                            <p style="color:red;">Card name is required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>Valid thru (MM/YY)</label>
+                        <input type="text" class="form-control" formControlName="expiryDate"
+                            (keydown)="getDate($event)">
+                        <div *ngIf="cardDetails.controls.expiryDate.touched && cardDetails.controls.expiryDate.errors">
+                            <p style="color:red;">Expiry date is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" class="form-control" formControlName="CVV">
+                        <div *ngIf="cardDetails.controls.CVV.touched && cardDetails.controls.CVV.errors">
+                            <p style="color:red;">CVV is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <button mat-raised-button color="primary" [disabled]="cardDetails.status=='INVALID'"
+                            (click)="addCard()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-expansion-panel>
+</mat-accordion>

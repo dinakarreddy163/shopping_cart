@@ -37,16 +37,16 @@
     </ng-container>
 </nav>
 
-<div class="container">
-    <nav class="navbar navbar-expand-lg header">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link navColorIcon" *ngFor="let data of headerIcons;let i = index"
-                (click)="iconActive(data)" (click)="onClickRouter(data.routerLink)" [routerLink]="data.routerLink"
-                routerLinkActive="navColorIconActive">
+    <div style="display: flex;justify-content: center;">
+        <div style="padding-right: 2rem; border: 1px red;"  *ngFor="let data of headerIcons;let i = index" (click)="iconActive(data)"
+            (click)="onClickRouter(data.routerLink)" [routerLink]="data.routerLink"
+            routerLinkActive="navColorIconActive">
+            <div >
                 <mat-icon id="icon" class="iconSet" style="height:18px">{{data.icon}}</mat-icon>
+            </div>
+            <div style="    margin-left: 7px;">
                 <label style="margin-left:0px" class="textColor">{{data.icon_name}}</label>
-                <!-- [ngClass]="data.active?'navColorIconActive':''" -->
-            </a>
+            </div>
+            <!-- [ngClass]="data.active?'navColorIconActive':''" -->
         </div>
-    </nav>
 </div>

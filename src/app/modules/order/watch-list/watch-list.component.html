@@ -28,6 +28,21 @@
                                                 <p class="priceDis">{{list.discountPercentage}}%</p>
                                             </div>
                                         </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <app-star-rating [starRating]="list.rating">
+                                                </app-star-rating>
+                                            </div>
+                                            <!-- <div class="col-lg-2">
+                                                {{data.rating}}
+                                            </div> -->
+                                            <div class="col-lg-4">
+                                                <button mat-stroked-button color="primary" class="watchButton">
+
+                                                    Add To Cart
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

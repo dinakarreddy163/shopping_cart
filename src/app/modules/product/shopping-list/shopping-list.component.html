@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-3">
-            <app-product-departments></app-product-departments>
+            <app-product-departments (shopingList)="getDepartMent($event)"></app-product-departments>
             <app-product-filters [name]="pageName" (year)="getYear($event)" (expand)="getExpandFilter($event)">
             </app-product-filters>
         </div>

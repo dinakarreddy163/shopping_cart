@@ -254,4 +254,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy, DoCheck {
       if (res != "") this.productList = this.productList.filter(item => item.title.toLowerCase().includes(res))
     })
   }
+  getDepartMent(data: string) {
+    this.auctionVal(this.selectAuc);
+    if (data != 'All') this.productList = this.productList.filter(e => e.category == data);
+  }
 }

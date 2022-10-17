@@ -75,6 +75,30 @@
                 "routerLink": "/shopping/filter_vintage"
             }
         ]
+    },
+    {
+        "name": "Clothing",
+        "children": [
+            {
+                "name": "All",
+                "value":"All"
+
+            },
+            {
+                "name": "Mens Clothing",
+                "value":"Mens"
+
+            },
+            {
+                "name": "Women Clothing",
+                "value":"Women"
+
+            },
+            {
+                "name": "Shoes",
+                "value":"Shoes"
+
+            }
+        ]
     }
-  
 ]

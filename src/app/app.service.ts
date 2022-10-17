@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Subject, ReplaySubject, Observable } from 'rxjs';
 import entertainment from './model/entertainment.json';
 import cloths from './model/cloths.json';
 import music from './model/music.json';
@@ -11,16 +11,20 @@ import sports from './model/sports.json';
 import electric from './model/electricTools.json';
 import childCare from './model/motherCare.json';
 import toys from './model/toys.json';
+import { PreloadAllModules, Route } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class AppService implements PreloadAllModules {
   public behaviourSubject = new BehaviorSubject(0);
   public behaviourSubjectCart = new BehaviorSubject(0);
   public behaviourSubjectSearch = new Subject();
   public replaySubject = new ReplaySubject();
   public seachValue = new BehaviorSubject<string>('');
   constructor() { }
+  preload(route: Route, fn: () => Observable<any>):any {
+    console.log(route)
+  }
 
   postVal(val: any) {
     this.behaviourSubject.next(val);

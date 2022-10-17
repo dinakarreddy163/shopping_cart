@@ -13,7 +13,7 @@ export class CartDetailsComponent implements OnInit {
   productList: any[] = [];
   totalAmt: number = 0.00;
   discountAmt: number = 0.00;
-  constructor(private model:MatDialog) { }
+  constructor(private model: MatDialog) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -29,12 +29,11 @@ export class CartDetailsComponent implements OnInit {
       this.totalAmt = this.totalAmt + val.price;
     })
   }
-  deleteProduct(list:any) {
-    this.productList = this.productList.filter(e=>e.title != list.title);
+  deleteProduct(list: any) {
+    this.productList = this.productList.filter(e => e.title != list.title);
     // localStorage.setItem('cartList',JSON.stringify(this,this.productList));
   }
-  checkOut()
-  {
+  checkOut() {
     this.model.open(CheckoutComponent);
   }
 }
