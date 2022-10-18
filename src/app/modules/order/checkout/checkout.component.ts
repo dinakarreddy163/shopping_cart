@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { generatePdf } from 'src/app/model/printPdf';
 
 @Component({
   selector: 'app-checkout',
@@ -6,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
-  checkOrder:boolean = false;
+  checkOrder: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+    generatePdf();
   }
-  getOrder(e:any)
-  {
+
+  getOrder(e: any) {
     this.checkOrder = e;
   }
 }
