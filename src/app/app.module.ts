@@ -17,13 +17,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './modules/register/register.component';
+import {  HttpClientModule } from '@angular/common/http';
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ErrorPageComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,9 @@ import { RegisterComponent } from './modules/register/register.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

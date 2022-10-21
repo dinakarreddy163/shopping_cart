@@ -80,7 +80,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shopping_cart:build"
+            "browserTarget": "shopping_cart:build",
+            "proxyConfig": "/proxy.conf.json"
           }
         },
         "test": {

@@ -11,7 +11,7 @@ import { AppService } from 'src/app/app.service';
 export class ProductDetailComponent implements OnInit {
   productDetail: any;
   data: any;
-  cartQty:number = 0;
+  cartQty: number = 0;
   constructor(@Inject(MAT_DIALOG_DATA) data: any, private app: AppService) {
     this.productDetail = data;
     //console.log(data)
@@ -20,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
   }
   addToCart() {
-    let getVal =0;
+    let getVal = 0;
     this.app.getValAddToCart().subscribe(e => {
       getVal = e;
     })
@@ -29,7 +29,7 @@ export class ProductDetailComponent implements OnInit {
     this.productDetail.qty = this.cartQty;
     let cartList: any[] = [];
     cartList.push(this.productDetail);
-    if(localStorage.getItem('cartList')){
+    if (localStorage.getItem('cartList')) {
       let storedList = localStorage.getItem('cartList');
       storedList = JSON.parse(storedList!);
       // cartList.push(storedList);
@@ -39,33 +39,31 @@ export class ProductDetailComponent implements OnInit {
       //   return cartList.indexOf(getIndex)==i;
       // })
     }
-    localStorage.setItem('cartList',JSON.stringify(cartList));
+    localStorage.setItem('cartList', JSON.stringify(cartList));
   }
-  removeToCart()
-  {
-    let getVal =0;
+  removeToCart() {
+    let getVal = 0;
     this.app.getValAddToCart().subscribe(e => {
       getVal = e;
     })
     this.app.postValAddToCart(getVal - 1);
     this.productDetail.addToCart = false;
     let cartList: any[] = [];
-    if(localStorage.getItem('cartList')){
+    if (localStorage.getItem('cartList')) {
       let storedList = localStorage.getItem('cartList');
       storedList = JSON.parse(storedList!);
       cartList = cartList.concat(storedList);
-      cartList = cartList.filter(e=>e.title!=this.productDetail.title);
+      cartList = cartList.filter(e => e.title != this.productDetail.title);
     }
-    localStorage.setItem('cartList',JSON.stringify(cartList));
+    localStorage.setItem('cartList', JSON.stringify(cartList));
   }
 
-  addQty(type:any)
-  {
-    if(type=='add')
-    {
+  addQty(type: any) {
+    if (type == 'add') {
       this.cartQty++;
-    } else  {
-      if(this.cartQty>=0) this.cartQty--;
+    } else {
+      if (this.cartQty >= 0) this.cartQty--;
     }
   }
+  //firebase
 }

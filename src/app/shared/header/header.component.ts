@@ -7,6 +7,7 @@ import { map, Observable, startWith } from 'rxjs';
 import { AppService } from 'src/app/app.service';
 import { LoginComponent } from 'src/app/modules/login/login.component';
 import { ProductService } from 'src/app/modules/product/product.service';
+import { SignatureComponent } from 'src/app/modules/profile/signature/signature.component';
 import { RegisterComponent } from 'src/app/modules/register/register.component';
 import data from '../../model/header.json';
 import { headerIcons } from '../../model/headerNav'
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
   headerIcons: headerIcons[] = data;
   constructor(private app: AppService, private matDialog: MatDialog, private route: Router, public router: ActivatedRoute, private matSnackBar: MatSnackBar) { }
   watchList: number = 0;
-  searchValue:any;
+  searchValue: any;
   options: any[] = [];
   filteredOptions: Observable<any[]> | undefined;
   cartValue: any;
@@ -29,25 +30,16 @@ export class HeaderComponent implements OnInit {
     this.searchData();
     this.getWatchList();
     this.getCart();
-    // this.options = this.app.searchResult();
-    // this.filteredOptions = this.myControl.valueChanges.pipe(
-    //   startWith(''),
-    //   map(value => this._filter(value || '')),
-    // );
     this.isAuth = localStorage.getItem("isLogin");
   }
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
 
-  //   return this.options.filter(option => option.title.toLowerCase().includes(filterValue));
-  // }
 
   iconActive(data: any) {
     this.headerIcons.map(e => e.active = false);
     data.active = true;
   }
   getWatchList() {
-    this.app.getVal().subscribe((data:any) => {
+    this.app.getVal().subscribe((data: any) => {
       this.watchList = data.length;
     })
   }
@@ -79,6 +71,8 @@ export class HeaderComponent implements OnInit {
     this.app.getValAddToCart().subscribe(e => {
       this.cartValue = e;
     })
+    let cartDetail = JSON.parse(localStorage.getItem('cartList')!);
+    this.cartValue =  cartDetail.length;
   }
   signOut() {
     this.isAuth = "false";
@@ -91,12 +85,15 @@ export class HeaderComponent implements OnInit {
   getWatch() {
     this.route.navigate(["order/watch-list"]);
   }
-  search(e:Event)
-  {
+  search(e: Event) {
     this.app.setSearch(this.searchValue);
   }
-  regiter()
-  {
+  regiter() {
     this.matDialog.open(RegisterComponent);
+  }
+  select(val: any) {
+    if (val == 'Signature') {
+      const signIn = this.matDialog.open(SignatureComponent);
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,9 +10,9 @@ export class PaymentOptionsComponent implements OnInit {
   panelOpenState: boolean = false;
   constructor() { }
   cardDetails: any;
-  cardList:any[]=[];
-  panelOpenStateCard:boolean = true;
-  @Output() orderCheckout:any = new EventEmitter();
+  cardList: any[] = [];
+  panelOpenStateCard: boolean = true;
+  @Output() orderCheckout: any = new EventEmitter();
   ngOnInit(): void {
     this.cardDetails = new FormGroup({
       cardNumber: new FormControl("", [Validators.required]),
@@ -28,18 +28,17 @@ export class PaymentOptionsComponent implements OnInit {
       expdate.replace(/\//g, "").substring(2, 4);
     this.cardDetails.controls.expiryDate.setValue(expDateFormatter);
   }
-  addCard()
-  {
+  addCard() {
     console.log(this.cardDetails);
     this.cardList.push({
-      "cardNumber":this.cardDetails.value.cardNumber,
-      "cardName":this.cardDetails.value.cardName,
-      "expiryDate":this.cardDetails.value.expiryDate,
-      "CVV":this.cardDetails.value.CVV,
+      "cardNumber": this.cardDetails.value.cardNumber,
+      "cardName": this.cardDetails.value.cardName,
+      "expiryDate": this.cardDetails.value.expiryDate,
+      "CVV": this.cardDetails.value.CVV,
     });
     this.cardDetails.reset();
   }
-  payment(e:any){
+  payment(e: any) {
     console.log(e);
     this.orderCheckout.emit(true);
   }

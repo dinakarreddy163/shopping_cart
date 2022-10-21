@@ -31,7 +31,16 @@ export class CartDetailsComponent implements OnInit {
   }
   deleteProduct(list: any) {
     this.productList = this.productList.filter(e => e.title != list.title);
-    // localStorage.setItem('cartList',JSON.stringify(this,this.productList));
+    this.productList.map(e => {
+      let discountAmt = (parseFloat(e.discountPercentage) * parseFloat(e.price)) / 100;
+      e.finalAmt = e.price - discountAmt;
+      this.discountAmt = this.discountAmt - discountAmt;
+    })
+    this.productList.forEach((val: any) => {
+      this.totalAmt = this.totalAmt - val.price;
+    })
+    localStorage.removeItem('cartList');
+    localStorage.setItem('cartList',JSON.stringify(this.productList));
   }
   checkOut() {
     this.model.open(CheckoutComponent);

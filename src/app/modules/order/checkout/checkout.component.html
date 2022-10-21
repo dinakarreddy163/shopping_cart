@@ -13,7 +13,7 @@
             <app-payment-options (orderCheckout)="getOrder($event)"></app-payment-options>
             <div style="float: right;
             margin-top: 2rem;">
-                <button mat-raised-button color="primary" [disabled]="!checkOrder" matStepperNext>Order Submit</button>
+                <button mat-raised-button color="primary" [disabled]="!checkOrder" matStepperNext (click)="orderSubmit()">Order Submit</button>
             </div>
         </mat-step>
         <mat-step>
