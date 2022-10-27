@@ -1,96 +1,121 @@
 <div class="container">
-<mat-card >
-    <form [formGroup]="address">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label>Address1</label>
-                    <input type="text" class="form-control" formControlName="address1"
-                        [ngClass]="address.controls.address1.touched && address.controls.address1.errors?'inputBroder':''">
-                    <div
-                        *ngIf="address.controls.address1.touched && address.controls.address1.errors">
-                        <p *ngIf="address.controls.address1.errors.required"
-                            style="color: red;">Address1 is
-                            required</p>
+    <mat-card>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenStateCard = true" (closed)="panelOpenStateCard = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Address Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-radio-group style="display: flex;" aria-label="Select an option" (change)="addressCheck($event)">
+                    <mat-radio-button *ngFor="let card of cardList;let i = index" [value]="card.addressName">
+                        {{card.addressName}}
+                    </mat-radio-button><br>
+                </mat-radio-group>
+            </mat-expansion-panel><br>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                       Add Address
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <form [formGroup]="address">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" formControlName="name"
+                                    [ngClass]="f().name.touched && f().name.errors?'inputBroder':''">
+                                <div *ngIf="f().name.touched && f().name.errors">
+                                    <p *ngIf="f().name.errors.required" style="color: red;">Name is
+                                        required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Address1</label>
+                                <input type="text" class="form-control" formControlName="address1"
+                                    [ngClass]="f().address1.touched && f().address1.errors?'inputBroder':''">
+                                <div *ngIf="f().address1.touched && f().address1.errors">
+                                    <p *ngIf="f().address1.errors.required" style="color: red;">Address1 is
+                                        required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Address2</label>
+                                <input type="text" class="form-control" formControlName="address2"
+                                    [ngClass]="f().address2.touched && f().address2.errors?'inputBroder':''">
+                                <div *ngIf="f().address2.touched && f().address2.errors">
+                                    <p *ngIf="f().address2.errors.required" style="color: red;">Address2 is
+                                        required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <select class="form-control" formControlName="country"
+                                    [ngClass]="f().country.touched && f().country.errors?'inputBroder':''">
+                                    <option>india</option>
+                                </select>
+                                <div *ngIf="f().country.touched && f().country.errors">
+                                    <p *ngIf="f().country.errors.required" style="color: red;">Country is
+                                        required</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label>Address2</label>
-                    <input type="text" class="form-control" formControlName="address2"
-                        [ngClass]="address.controls.address2.touched && address.controls.address2.errors?'inputBroder':''">
-                    <div
-                        *ngIf="address.controls.address2.touched && address.controls.address2.errors">
-                        <p *ngIf="address.controls.address2.errors.required"
-                            style="color: red;">Address2 is
-                            required</p>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>State</label>
+                                <select class="form-control" formControlName="state"
+                                    [ngClass]=" f().state.touched && f().state.errors?'inputBroder':''">
+                                    <option>Andhra Pradesh</option>
+                                </select>
+                                <div *ngIf="f().state.touched && f().state.errors">
+                                    <p *ngIf="f().state.errors.required" style="color: red;">State is
+                                        required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input class="form-control" formControlName="city"
+                                    [ngClass]="f().city.touched && f().city.errors?'inputBroder':''">
+                                <div *ngIf="f().city.touched && f().city.errors">
+                                    <p *ngIf="f().city.errors.required" style="color: red;">
+                                        City is
+                                        required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label>Zip Code</label>
+                                <input type="text" class="form-control" formControlName="zip"
+                                    [ngClass]="f().zip.touched && f().zip.errors?'inputBroder':''">
+                                <div *ngIf="f().zip.touched && f().zip.errors">
+                                    <p *ngIf="f().zip.errors.required" style="color: red;">
+                                        Zip code is
+                                        required</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <button mat-raised-button color="primary" [disabled]="address.status=='INVALID'"
+                                    (click)="add()">Add</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label>Country</label>
-                    <select class="form-control" formControlName="country"
-                        [ngClass]="address.controls.country.touched && address.controls.country.errors?'inputBroder':''">
-                        <option>india</option>
-                    </select>
-                    <div
-                        *ngIf="address.controls.country.touched && address.controls.country.errors">
-                        <p *ngIf="address.controls.country.errors.required"
-                            style="color: red;">Country is
-                            required</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label>State</label>
-                    <select class="form-control" formControlName="state"
-                        [ngClass]=" address.controls.state.touched && address.controls.state.errors?'inputBroder':''">
-                        <option>india</option>
-                    </select>
-                    <div
-                        *ngIf="address.controls.state.touched && address.controls.state.errors">
-                        <p *ngIf="address.controls.state.errors.required"
-                            style="color: red;">State is
-                            required</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label>City</label>
-                    <select class="form-control" formControlName="city"
-                        [ngClass]="address.controls.city.touched && address.controls.city.errors?'inputBroder':''">
-                        <option>india</option>
-                    </select>
-                    <div
-                        *ngIf="address.controls.city.touched && address.controls.city.errors">
-                        <p *ngIf="address.controls.city.errors.required" style="color: red;">
-                            City is
-                            required</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="form-group">
-                    <label>Zip Code</label>
-                    <select class="form-control" formControlName="zip"
-                        [ngClass]="address.controls.zip.touched && address.controls.zip.errors?'inputBroder':''">
-                        <option>india</option>
-                    </select>
-                    <div
-                        *ngIf="address.controls.zip.touched && address.controls.zip.errors">
-                        <p *ngIf="address.controls.zip.errors.required" style="color: red;">
-                            Zip code is
-                            required</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</mat-card>
+                </form>
+            </mat-expansion-panel>
+
+        </mat-accordion>
+    </mat-card>
 </div>

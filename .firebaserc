@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ecommerse-website-40f74"
+  },
+  "targets": {
+    "ecommerse-website-40f74": {
+      "hosting": {
+        "shopping_cart": [
+          "ecommerse-website-40f74"
+        ]
+      }
+    }
+  }
+}

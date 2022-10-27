@@ -101,6 +101,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "shopping_cart:build:production",
+            "firebaseProject": "ecommerse-website-40f74",
+            "firebaseHostingSite": "ecommerse-website-40f74"
+          }
         }
       }
     }

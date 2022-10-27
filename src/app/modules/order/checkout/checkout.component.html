@@ -2,10 +2,10 @@
     <mat-stepper [linear]="true" #stepper>
         <mat-step>
             <ng-template matStepLabel>Address</ng-template>
-            <app-address></app-address>
+            <app-address (addAddress)="getAddress($event)"></app-address>
             <div style="float: right;
             margin-top: 2rem;">
-                <button mat-raised-button color="primary" matStepperNext>Next</button>
+                <button mat-raised-button color="primary" matStepperNext [disabled]="!addressCheck">Next</button>
             </div>
         </mat-step>
         <mat-step>
@@ -13,7 +13,8 @@
             <app-payment-options (orderCheckout)="getOrder($event)"></app-payment-options>
             <div style="float: right;
             margin-top: 2rem;">
-                <button mat-raised-button color="primary" [disabled]="!checkOrder" matStepperNext (click)="orderSubmit()">Order Submit</button>
+                <button mat-raised-button color="primary" [disabled]="!checkOrder" matStepperNext
+                    (click)="orderSubmit()">Order Submit</button>
             </div>
         </mat-step>
         <mat-step>

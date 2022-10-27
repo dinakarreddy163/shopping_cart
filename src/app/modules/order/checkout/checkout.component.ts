@@ -8,6 +8,7 @@ import { generatePdf } from 'src/app/model/printPdf';
 })
 export class CheckoutComponent implements OnInit {
   checkOrder: boolean = false;
+  addressCheck: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -35,5 +36,9 @@ export class CheckoutComponent implements OnInit {
       }
     }
     rawFile.send(null);
+  }
+  getAddress(val:any)
+  {
+    this.addressCheck = val;
   }
 }
